@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Inconsolata:wght@200;300;400;700&family=Raleway:wght@100;300;400;700&family=Roboto+Slab:wght@100;200;300;400;700&display=swap');
+
+:root {
+  --bs-font-sans-serif: 'Raleway', sans-serif !important;
+  --bs-font-monospace: 'Roboto Slab', serif, 'Inconsolata', monospace !important;
+  --bs-font-serif: 'EB Garamond', serif !important;
+  --bs-blue: #eb6864;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #e83e8c;
+  --bs-red: #f57a00;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #f5e625;
+  --bs-green: #22b24c;
+  --bs-teal: #20c997;
+  --bs-cyan: #369;
+  --bs-white: #fff;
+  --bs-gray: #777;
+  --bs-gray-dark: #333;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #eee;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #aaa;
+  --bs-gray-600: #777;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #333;
+  --bs-gray-900: #222;
+  --bs-primary: #eb6864;
+  --bs-secondary: #aaa;
+  --bs-success: #22b24c;
+  --bs-info: #369;
+  --bs-warning: #f5e625;
+  --bs-danger: #f57a00;
+  --bs-light: #f8f9fa;
+  --bs-dark: #222;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--bs-font-sans-serif) !important;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  font-family: var(--bs-font-monospace);
+}
+
+h5,
+.h5,
+h6,
+.h6,
+p,
+i,
+span,
+strong {
+  font-family: var(--bs-font-sans-serif);
+  font-size: inherit;
+}
+
+a {
+  font-family: var(--bs-font-sans-serif);
+  font-size: inherit 1.4em;
+  color: var(--bs-teal) !important;
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--bs-cyan) !important;
+  cursor: pointer;
+}
+
+a:focus {
+  color: var(--bs-orange) !important;
+}
+
+small {
+  font-family: var(--bs-font-sans-serif);
+  font-size: 0.4em;
+}
+
+.MuiMenuItem-root {
+  font-family: var(--bs-font-sans-serif) !important;
+}
+
+.MuiTypography-body1 {
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
