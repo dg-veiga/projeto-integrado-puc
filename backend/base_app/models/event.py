@@ -1,4 +1,5 @@
-from django.contrib.gis.db import models
+from base_app.models import CreatedAtUpdatedAtModel
+from django.db import models
 from django.utils.translation import gettext as _
 
 
@@ -10,7 +11,7 @@ class EventType(models.IntegerChoices):
     __empty__ = _('Unknown')
 
 
-class Event(models.Model):
+class Event(CreatedAtUpdatedAtModel):
 
     title = models.CharField(
         verbose_name=_('Título'),
@@ -37,18 +38,7 @@ class Event(models.Model):
         auto_now=True,
         null=True)
 
-    created_at = models.DateTimeField(
-        verbose_name=_('Data de Criação'),
-        auto_now_add=True,
-        null=True)
-
-    updated_at = models.DateTimeField(
-        verbose_name=_('Última alteração'),
-        auto_now=True,
-        null=True)
-
     class Meta:
         verbose_name = _('Evento')
         verbose_name_plural = _('Eventos')
         ordering = ('-created_at',)
-        abstract = True
