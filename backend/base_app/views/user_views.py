@@ -4,9 +4,10 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.generics import RetrieveUpdateAPIView
-
+from rest_framework_simplejwt.views import TokenObtainPairView
 from base_app.models.user import User
 from base_app.permissions import UserRetrieveUpdatePermission
+from base_app.serializers import CustomTokenObtainPairSerializer, UserRetrieveSerializer
 
 
 @api_view(['GET'])
@@ -25,4 +26,9 @@ def allow_any_route(request):
 
 class UserRetrieveUpdateView(RetrieveUpdateAPIView):
     queryset = User.objects.filter(is_active=True)
-    permission_classes = UserRetrieveUpdatePermission
+    permission_classes = [UserRetrieveUpdatePermission]
+    serializer_class = UserRetrieveSerializer
+
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
