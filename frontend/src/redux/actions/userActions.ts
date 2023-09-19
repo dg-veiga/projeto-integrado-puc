@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { notify } from '../../utils/ToastAlert';
+// import { notify } from '../../utils/ToastAlert';
+import { api, endpoints } from '../../services/api'
+
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -30,8 +32,8 @@ export const login = (email, password) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_SERVER}/users/login/`,
+    const { data } = await api.post(
+      endpoints.token,
       {
         username: email,
         password: password,
@@ -119,15 +121,31 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
 
+    var { data } = await api.post(
+      endpoints.tokenRefresh,
+      {"refresh": userInfo.refresh},
+      {
+        headers: {
+          'Content-type': 'application/json',
+          // Authorization: `Bearer ${userInfo.refresh}`,
+        },
+      }
+    );
+
+    localStorage.setItem(
+      'userInfo', 
+      JSON.stringify({...userInfo, ...data})
+    );
+
     const config = {
       headers: {
         'Content-type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`, // consertar backend para token=access
+        Authorization: `Bearer ${userInfo.access}`,
       },
     };
 
-    const { data } = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_SERVER}/users/${id}/`,
+    var { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_API_SERVER}/user/${id}/`,
       config
     );
 
@@ -159,7 +177,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     const config = {
       headers: {
         'Content-type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access}`,
       },
     };
 

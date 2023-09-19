@@ -5,11 +5,12 @@ import styles from './styles.module.scss';
 
 interface Props{
     type: "button" | "submit" | "reset"
+    children: any
 }
 
-const Button1 = ({type}: Props) => {
+function Button1({type}: Props) {
     return (
-        <button type={type} className={styles.Button1}>
+        <button type={type} className='btn btn-primary' id={styles.Button1}>
             Submit
         </button>
     );

@@ -4,8 +4,8 @@ import React, { useEffect } from 'react';
 import '../styles/bootstrap.css';
 // import '../styles/_bootswatch.scss';
 // import 'react-multi-carousel/lib/styles.css';
-// import { Provider } from 'react-redux';
-// import store from '../redux/store';
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 // import { theme } from '../styles/themes';
 import { useRouter } from 'next/router';
 // import Analytics from '../components/Analytics';
@@ -28,9 +28,9 @@ function App({ Component, pageProps }: Props) { // AppProps
   }, [router.events]);
 
   return (
-    // <>
+    <Provider store={store}>
       <Component {...pageProps} />
-    // </>
+    </Provider>
   );
 }
 
