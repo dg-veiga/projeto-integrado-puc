@@ -4,7 +4,7 @@ import Button1 from '../../components/Button1'
 
 import styles from './styles.module.scss';
 
-import { login } from '../../redux/actions/userActions';
+import { login, getUserDetails } from '../../redux/actions/userActions';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -31,7 +31,8 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if(userInfo){
-        router.push('home/')
+      // dispatch()
+      router.push('home/')
     }
   }, [userInfo])
 
