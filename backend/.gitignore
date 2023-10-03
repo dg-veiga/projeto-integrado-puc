@@ -51,6 +51,10 @@ Thumbs.db
 # Migrations 
 ## base_app
 base_app/migrations/*
+!base_app/migrations/0001_initial.py
+!base_app/migrations/0002_alter_pet_adoption_date_alter_pet_birth_date.py
+!base_app/migrations/0003_event.py
+!base_app/migrations/0004_weighingrecord.py
 
 # Diagram class 
 class_diagram.png
