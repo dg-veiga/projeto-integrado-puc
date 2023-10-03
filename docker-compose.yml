@@ -1,0 +1,98 @@
+version: '3.7'
+
+services:
+  projint-moto:
+    container_name: projint-moto
+    image: motoserver/moto
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_S3_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_S3_SECRET_ACCESS_KEY}
+      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN}
+      AWS_DEFAULT_REGION: ${AWS_S3_REGION_NAME}
+    restart: unless-stopped
+    ports:
+      - 5000:5000
+    networks:
+      - default
+
+  projint-db:
+    depends_on:
+      - projint-moto
+    container_name: projint-db
+    image: postgres:12-alpine
+    volumes:
+      - projint-db:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_DB=projint"
+      - "POSTGRES_USER=admin"
+      - "POSTGRES_PASSWORD=@dmin123"
+    restart: unless-stopped
+    ports:
+      - 6432:5432
+    networks:
+      - default
+
+  projint-backend:
+    depends_on:
+      - projint-moto
+      - projint-db
+    env_file:
+      - .env
+    build:
+      context: backend
+      dockerfile: Dockerfile
+      # args:
+      #   BRANCH: develop
+    image: projint-backend:latest
+    container_name: projint-backend
+    restart: unless-stopped
+    volumes:
+      - projint-media:/var/www/projint-backend/media
+    # command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - "DJANGO_SETTINGS_MODULE=project.settings.homologation"
+    ports:
+      - 8000:8000
+    networks:
+      - default
+
+  projint-frontend:
+    depends_on:
+      - projint-backend
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+      # args:
+      #   BRANCH: develop
+      #   SSH_PRIVATE_KEY: docker_keyS
+    image: projint-frontend:latest
+    command: npm run start
+    container_name: projint-frontend
+    restart: unless-stopped
+    networks:
+      - default
+
+  proxy:
+    depends_on:
+      - projint-backend
+      - projint-frontend
+    build:
+      context: proxy
+      dockerfile: Dockerfile
+    image: proxy:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - "DOMAIN=localhost"
+    container_name: proxy
+    networks:
+      - default
+
+volumes:
+  projint-db:
+  projint-media:
+
+networks:
+  default:
