@@ -23,12 +23,10 @@ class Pet(models.Model):
 
     birth_date = models.DateField(
         verbose_name=_('Data do evento'),
-        auto_now=True,
         null=True)
     
     adoption_date = models.DateField(
         verbose_name=_('Data de adoção'),
-        auto_now=True,
         null=True)
     
     class Meta:

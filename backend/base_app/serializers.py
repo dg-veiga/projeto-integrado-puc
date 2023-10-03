@@ -8,7 +8,8 @@ from base_app.models import Pet, User
 class PetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pet
-        fields = ['id', 'name', 'owner', 'viewer']
+        fields = '__all__'
+        # fields = ['id', 'name', 'owner', 'viewer']
 
 
 class UserRetrieveSerializer(serializers.ModelSerializer):
@@ -28,5 +29,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
         data['id'] = self.user.id
+        data['full_name'] = self.user.first_name
+        data['email'] = self.user.email
         return data
     

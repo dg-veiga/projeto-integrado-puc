@@ -9,3 +9,6 @@ class PetViewSet(ModelViewSet):
     serializer_class = PetSerializer
     permission_classes = [PetRetrieveAsOwnerPermission]
     http_method_names = ['get', 'put', 'post', 'delete', 'patch']
+
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)

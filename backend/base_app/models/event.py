@@ -1,4 +1,4 @@
-from base_app.models import CreatedAtUpdatedAtModel
+from base_app.models.abstract import CreatedAtUpdatedAtModel
 from django.db import models
 from django.utils.translation import gettext as _
 
@@ -16,6 +16,14 @@ class Event(CreatedAtUpdatedAtModel):
     title = models.CharField(
         verbose_name=_('Título'),
         max_length=255,
+        blank=False,
+        null=False
+    )
+
+    pet = models.ForeignKey(
+        'base_app.Pet',
+        verbose_name=_('Pet'),
+        on_delete=models.CASCADE,
         blank=False,
         null=False
     )
