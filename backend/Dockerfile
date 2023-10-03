@@ -12,9 +12,9 @@ RUN source $VIRTUAL_ENV/bin/activate
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-RUN python manage.py migrate
-RUN python manage.py flush --noinput
-RUN python manage.py shell < base_app/scripts/create_dummy_users.py
+# RUN python manage.py migrate
+# RUN python manage.py flush --noinput
+# RUN python manage.py shell < base_app/scripts/create_dummy_users.py
 
 EXPOSE 8000
 

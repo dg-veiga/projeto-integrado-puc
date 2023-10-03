@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from base_app.models import Pet, User
+from base_app.models import Pet, User, WeighingRecord
 
 
 
@@ -33,3 +33,8 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data['email'] = self.user.email
         return data
     
+
+class WeighingRecordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WeighingRecord
+        fields = '__all__'

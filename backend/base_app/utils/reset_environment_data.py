@@ -11,6 +11,8 @@ def reset_environment_data():
     # creating dummy users
     create_dummy_users()
 
+    print('reset_environment_data done!')
+
 
 if __name__ == 'django.core.management.commands.shell':
     reset_environment_data()

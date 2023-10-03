@@ -5,10 +5,10 @@ services:
     container_name: projint-moto
     image: motoserver/moto
     environment:
-      AWS_ACCESS_KEY_ID: ${AWS_S3_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${AWS_S3_SECRET_ACCESS_KEY}
-      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN}
-      AWS_DEFAULT_REGION: ${AWS_S3_REGION_NAME}
+      AWS_ACCESS_KEY_ID: testing
+      AWS_SECRET_ACCESS_KEY: testing
+      AWS_SESSION_TOKEN: testing
+      AWS_DEFAULT_REGION: us-east-1
     restart: unless-stopped
     ports:
       - 5000:5000
@@ -29,8 +29,7 @@ services:
     restart: unless-stopped
     ports:
       - 6432:5432
-    networks:
-      - default
+    network_mode: "host"
 
   projint-backend:
     depends_on:
@@ -41,20 +40,14 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
-      # args:
-      #   BRANCH: develop
     image: projint-backend:latest
     container_name: projint-backend
     restart: unless-stopped
     volumes:
       - projint-media:/var/www/projint-backend/media
-    # command: python manage.py runserver 0.0.0.0:8000
-    environment:
-      - "DJANGO_SETTINGS_MODULE=project.settings.homologation"
     ports:
       - 8000:8000
-    networks:
-      - default
+    network_mode: "host"
 
   projint-frontend:
     depends_on:
@@ -62,15 +55,11 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
-      # args:
-      #   BRANCH: develop
-      #   SSH_PRIVATE_KEY: docker_keyS
     image: projint-frontend:latest
     command: npm run start
     container_name: projint-frontend
     restart: unless-stopped
-    networks:
-      - default
+    network_mode: "host"
 
   proxy:
     depends_on:
@@ -87,12 +76,8 @@ services:
     environment:
       - "DOMAIN=localhost"
     container_name: proxy
-    networks:
-      - default
+    network_mode: "host"
 
 volumes:
   projint-db:
   projint-media:
-
-networks:
-  default:

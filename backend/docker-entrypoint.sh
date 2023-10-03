@@ -1,12 +1,11 @@
 # venv
 
+env
+
 echo "building venv..."
 python3 -m venv venv
 
 source venv/bin/activate
-
-# pip install --upgrade pip
-# pip install -r requirements.txt
 
 # Migrations
 
@@ -17,7 +16,7 @@ python manage.py migrate
 
 echo "flushing data and loading fistures..."
 python manage.py flush --noinput
-python manage.py shell < base_app/scripts/create_dummy_users.py
+python manage.py shell < base_app/utils/reset_environment_data.py
 
 # Start backend
 python manage.py runserver 0.0.0.0:8000
