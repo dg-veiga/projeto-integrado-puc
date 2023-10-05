@@ -10,7 +10,7 @@ import store from '../redux/store';
 import { useRouter } from 'next/router';
 // import Analytics from '../components/Analytics';
 import Script from 'next/script';
-import './../styles/globals.css'
+import './../styles/custom.css'
 
 interface Props {
   Component: any

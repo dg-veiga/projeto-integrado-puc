@@ -1,9 +1,9 @@
-FROM node:13.12.0-alpine
+FROM node:14.18.0-alpine
 
 ENV PORT 3000
 
 # Create app directory
-WORKDIR /code/frontend
+WORKDIR /workspace
 
 # Installing dependencies
 COPY package.json ./
@@ -14,8 +14,9 @@ RUN npm install
 COPY . .
 
 # Building app
-# RUN npm run build
+RUN npm run build
+
 EXPOSE 3000
 
 # Running the app
-CMD ["npm", "run", "build"]
+CMD ["npm", "run", "start"]

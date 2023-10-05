@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import styles from './styles.module.scss';
+import styles from './styles.module.css';
 
 interface Props{
     type: "button" | "submit" | "reset"

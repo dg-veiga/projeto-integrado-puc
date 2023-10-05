@@ -1,48 +1,50 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
-import {MainContext, MainProvider} from '../../contexts/Main'
+import { MainContext, MainProvider } from '../../contexts/Main';
 import { useDispatch } from 'react-redux';
 import { getUserDetails, logout } from '../../redux/actions/userActions';
 import Link from 'next/link';
-
+import styles from './styles.module.css';
+import { Col, Image, Row } from 'react-bootstrap';
 
 export default function Header({}) {
-  
-  const {
-    userInfo,
-  } = useContext(MainContext);
+  const { userInfo } = useContext(MainContext);
 
-  const [ email, setEmail ] =useState('')
-  const [ fullName, setFullName ] =useState('')
+  const [email, setEmail] = useState('');
+  const [fullName, setFullName] = useState('');
 
   const router = useRouter();
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
-    dispatch(logout())
-  }
+    dispatch(logout() as any);
+  };
 
   useEffect(() => {
-    if(userInfo){
-      dispatch(getUserDetails(userInfo.id))
-      setEmail(userInfo.email)
-      setFullName(userInfo.full_name)
+    if (userInfo) {
+      dispatch(getUserDetails(userInfo.id) as any);
+      setEmail(userInfo.email);
+      setFullName(userInfo.full_name);
     } else {
-      router.push('login/')
+      router.push('login/');
     }
-  }, [userInfo])
+  }, [userInfo]);
 
   return (
-    <div className='bs-docs-section'>
-      <div className='container'>
-        <div className='row'>
-          <Link href='/home'>Home</Link>
-          <div className='col'>{email}</div>
-          <div className='col'>{fullName}</div>
+      <Row className={styles.header}>
+        <Col md={2}>
+          <Link href='/home'>
+            <img src={'./assets/logo_petpal_f.png'} alt="" className={styles.headerPhoto}/>
+          </Link>
+        </Col>
+        <Col md={8}>
+          <h1>Placeholder Name</h1>
+          <h3 className='row'>{email}</h3>
+        </Col>
+        <Col md={2}>
           <button onClick={logoutHandler}>Logout</button>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
   );
 }

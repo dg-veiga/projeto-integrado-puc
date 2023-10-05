@@ -8,6 +8,8 @@ DATABASES = {
         'USER': 'admin',
         'PASSWORD': '@dmin123',
         'HOST': 'localhost',
-        'PORT': 6432,
+        'PORT': 5432,
     }
 }
+
+from ._aws_settings import *

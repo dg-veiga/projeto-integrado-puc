@@ -1,5 +1,5 @@
 from base_app.views.user_views import allow_any_route, is_authenticated_route, CustomTokenObtainPairView, UserRetrieveUpdateView
-from base_app.views.pet_views import PetViewSet
+from base_app.views.pet_views import PetViewSet, CreatePetView
 from base_app.views.event_views import EventViewSet
 from base_app.views.weighing_views import WeighingRecordAPIView
 from django.urls import path, include
@@ -22,7 +22,9 @@ urlpatterns = [
     path('is_authenticated_route/', is_authenticated_route),
     
     # weighing
-    path('pet/<int:pk>/weight/', WeighingRecordAPIView.as_view()),
+    # path('pet/<int:pk>/weight/', WeighingRecordAPIView.as_view()),
+
+    path('create_pet/', CreatePetView.as_view()),
 
     path('reset_environment_data/', reset_environment_data_route),
     

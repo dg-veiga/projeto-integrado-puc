@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import Header from '../../components/Header'
-import Mai from '../../components/Header'
-import {MainContext, MainProvider} from '../../contexts/Main'
+import Header from '../../components/Header';
+import { MainContext, MainProvider } from '../../contexts/Main';
 
-import { api, endpoints } from '../../services/api';
-import { login, getUserDetails } from '../../redux/actions/userActions';
-import { useDispatch } from 'react-redux';
+import { Row, Col } from 'react-bootstrap';
 
-import {
-  useSelector,
-  TypedUseSelectorHook,
-} from 'react-redux'
-import { RootState } from '../../redux/store'
 import MainContainer from '../../components/MainContainer';
-import PetCard from '../../components/PetCard';
 import PetList from '../../components/PetList';
 
 const Home: React.FC = () => {
-
   return (
     <MainProvider>
-      <Header />
       <MainContainer>
+        <Header />
+        <Row>
+          <Col>
+            <h2>Meus pets:</h2>
+          </Col>
+          <Col>
+            <a href='/adiciona-pet'>
+              <h2 style={{ textAlign: 'right' }}>+ Adicionar pet</h2>
+            </a>
+          </Col>
+        </Row>
         <PetList />
       </MainContainer>
     </MainProvider>

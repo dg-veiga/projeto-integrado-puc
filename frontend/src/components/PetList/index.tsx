@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState, ReactNode } from 'react';
 // import styles from './styles.module.scss';
 import { Card, Row, Col } from 'react-bootstrap'
 import {MainContext, MainProvider} from '../../contexts/Main'
+import BottomContainer from '../../components/BottomContainer'
 import { api,  } from '../../services/api';
 import PetCard from '../PetCard';
 
@@ -44,8 +45,8 @@ export default function PetList() {
     <PetCard id={pet.id} name={pet.name} birthDate={pet.birth_date} adoptionDate={pet.adoption_date}/>);
 
   return (
-    <>
+    <BottomContainer>
       {petList? pets : <></>}
-    </>
+    </BottomContainer>
   );
 }

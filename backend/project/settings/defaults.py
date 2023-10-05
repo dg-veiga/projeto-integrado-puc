@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
+    'storages',
     'corsheaders',
 
     'base_app'
@@ -201,3 +202,5 @@ CORS_ORIGIN_WHITELIST = [
 #     'API-AUTH',
 #     'REQUEST-USER',
 # ]
+
+WEBSITE_URL = os.getenv('WEBSITE_URL')

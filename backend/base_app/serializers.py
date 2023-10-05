@@ -9,7 +9,6 @@ class PetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pet
         fields = '__all__'
-        # fields = ['id', 'name', 'owner', 'viewer']
 
 
 class UserRetrieveSerializer(serializers.ModelSerializer):

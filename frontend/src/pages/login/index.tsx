@@ -26,7 +26,7 @@ const Login: React.FC = () => {
   const { error, loading, userInfo } = userLogin;
 
   const handleSubmit = (email, password) => {
-    dispatch(login(email,password))
+    dispatch(login(email,password) as any)
   }
 
   useEffect(() => {
