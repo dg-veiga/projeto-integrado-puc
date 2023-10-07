@@ -25,7 +25,6 @@ urlpatterns = [
     # path('pet/<int:pk>/weight/', WeighingRecordAPIView.as_view()),
 
     path('create_pet/', CreatePetView.as_view()),
-
     path('reset_environment_data/', reset_environment_data_route),
     
     path(r'', include(router.urls)),

@@ -14,6 +14,9 @@ import os
 from pathlib import Path
 from datetime import timedelta
 
+from project.core_models import RootObject
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -204,3 +207,7 @@ CORS_ORIGIN_WHITELIST = [
 # ]
 
 WEBSITE_URL = os.getenv('WEBSITE_URL')
+
+ENVIRONMENT = os.getenv('DJANGO_SETTINGS_MODULE').split('.')[-1]
+
+ROOT_OBJECT = RootObject(environment=ENVIRONMENT)

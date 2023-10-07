@@ -1,7 +1,13 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from base_app.utils.hash import generate_hash
+from project.core_models.storage_backends import PublicMediaStorage
 
-from base_app.models.file import PetPicture
+# from base_app.models.file import PetPicture
+
+def pet_picture_path(instance, filename):
+    ext = filename.split('.')[-1]
+    return f'pet_pictures/{instance.pk}/{generate_hash()}.{ext}'
 
 
 class Pet(models.Model):
@@ -48,9 +54,9 @@ class Pet(models.Model):
         verbose_name=_('Data de adoção'),
         null=True)
 
-    picture = models.ForeignKey(
-        PetPicture, on_delete=models.CASCADE, 
-        null=True)
+    picture = models.ImageField(verbose_name=_('Foto de Perfil'),
+                                null=True, blank=True, upload_to=pet_picture_path, 
+                                storage=PublicMediaStorage())
 
     class Meta:
         verbose_name = _('Pet')

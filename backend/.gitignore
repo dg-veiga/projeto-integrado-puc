@@ -19,6 +19,7 @@ project/media/
 
 # pycache files
 *__pycache__/
+*.pyc
 
 # Log files
 *.log

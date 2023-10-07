@@ -1,14 +1,18 @@
 import os
 
-from .defaults import BASE_DIR, WEBSITE_URL
+from .defaults import ROOT_OBJECT, BASE_DIR, WEBSITE_URL
 
-USE_S3 = True
-USE_S3_STATICFILES = True
-AWS_S3_ACCESS_KEY_ID = 'testing'
-AWS_S3_SECRET_ACCESS_KEY = 'testing'
-AWS_STORAGE_BUCKET_NAME = 'testing-bucket'
-AWS_S3_REGION_NAME = 'us-east-1'
-AWS_S3_ENDPOINT_URL = 'http://localhost:5000'
+
+USE_S3 = os.getenv('USE_S3') == 'True'
+USE_S3_STATICFILES = os.getenv('USE_S3_STATICFILES') == 'True'
+
+aws_config = ROOT_OBJECT.aws_config
+
+AWS_ACCESS_KEY_ID = aws_config.aws_access_key_id
+AWS_SECRET_ACCESS_KEY = aws_config.aws_secret_access_key
+AWS_STORAGE_BUCKET_NAME = aws_config.aws_storage_bucket_name
+AWS_S3_REGION_NAME = aws_config.region_name
+AWS_S3_ENDPOINT_URL = aws_config.endpoint_url
 AWS_S3_VERIFY = True
 
 STATIC_LOCATION = 'static'

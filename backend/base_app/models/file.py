@@ -23,13 +23,6 @@ class UserProfilePicture(Picture):
     pass
 
 
-class PetPicture(Picture):
-    file = models.ImageField(
-        verbose_name=_('Foto de Perfil'),
-        null=True, blank=True, upload_to=pet_picture_path,
-        storage=PublicMediaStorage())
-
-
 class PetFile(File):
     pass
 

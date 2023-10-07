@@ -11,6 +11,15 @@ class PetSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class PetCreateSerializer(serializers.ModelSerializer):
+    picture = serializers.ImageField(required=False)
+    
+    class Meta:
+        model = Pet
+        fields = ['name', 'species', 'breed', 'birth_date', 
+                  'adoption_date', 'picture', 'owner']
+
+
 class UserRetrieveSerializer(serializers.ModelSerializer):
     pets = serializers.SerializerMethodField()
 
