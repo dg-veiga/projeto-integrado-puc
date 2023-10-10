@@ -3,12 +3,15 @@ import React, { useContext, useEffect, useState, ReactNode } from 'react';
 // import styles from './styles.module.scss';
 import { Card, Row, Col } from 'react-bootstrap';
 import moment from 'moment';
+import styles from './styles.module.css';
 
 interface PetData {
   id: Number;
   name: String;
   birthDate: Date;
   adoptionDate: Date;
+  petPicture: string;
+  eventNum: number
 }
 
 export default function PetCard({
@@ -16,6 +19,8 @@ export default function PetCard({
   name,
   birthDate,
   adoptionDate,
+  petPicture,
+  eventNum
 }: PetData) {
   const eventURL = `pet/${id}/eventos`;
   const createEventURL = `pet/${id}/evento`;
@@ -27,24 +32,18 @@ export default function PetCard({
   var y = moment(adoptionDate);
   var age = moment.duration(x.diff(y));
   console.log(age);
+  console.log(petPicture)
 
   return (
-    <Card>
-      <Row>
-        <Col>
+    <Card className={styles.petCard}>
+      <Row className={styles.petRow}>
+        <Col md={3} className={styles.petPictureCol}>
           <a href={`/pet/${id}/`}>
-            <div
-              style={{
-                width: '120px',
-                height: '120px',
-                backgroundColor: 'red',
-                borderRadius: '60px',
-              }}
-            ></div>
+            <img src={petPicture} alt="" className={styles.petPicture} />
           </a>
         </Col>
-        <Col>
-          <h1>{name}</h1>
+        <Col md={9}>
+          <h2>{name}</h2>
           <p>
             meu amigo a {age.years()} anos e {age.months()} meses
           </p>

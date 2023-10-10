@@ -1,24 +1,33 @@
 from base_app.models import Pet
 from base_app.permissions import OwnerPermission, ViewerPermission
-from base_app.serializers import PetSerializer, PetCreateSerializer
+from base_app.serializers import PetListSerializer, PetRetrieveSerializer, PetCreateSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import CreateAPIView
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.views import APIView
+
+
+class SetViewerToPet(APIView):
+    queryset = Pet.objects.all()
+    serializer_class = PetRetrieveSerializer
+
 
 class PetViewSet(ModelViewSet):
     queryset = Pet.objects.all()
-    serializer_class = PetSerializer
+    serializer_class = PetRetrieveSerializer
     permission_classes = [OwnerPermission | ViewerPermission]
     http_method_names = ['get', 'put', 'post', 'delete', 'patch']
 
     def get_queryset(self):
         if self.action == 'list':
+            self.serializer_class = PetListSerializer
             qs = super().get_queryset()
             return [pet for pet in qs if (self.request.user in pet.owner.all() or self.request.user in pet.viewer.all())]
         else:
-            super().get_queryset()
+            return super().get_queryset()
+
 
 class CreatePetView(CreateAPIView):
     queryset = Pet.objects.all()
@@ -39,12 +48,13 @@ class CreatePetView(CreateAPIView):
         if 'picture' in request_data.keys():
             picture = request_data.pop('picture')
 
-        owner = self.request.user.id
-        request_data.update({'owner': owner})
-
+        owner = self.request.user
+        
         serializer = self.get_serializer(data=request_data)
         serializer.is_valid(raise_exception=True)
         instance = self.perform_create(serializer)
+        instance.owner.add(owner)
+        instance.save()
 
         if weight:
             # TODO Fazer primeiro registro de peso

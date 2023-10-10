@@ -1,14 +1,16 @@
 import tempfile
 from PIL import Image
 from base_app.tests.common import TestCommon
-from base_app.models import User
+from base_app.models import User, Pet
+
 
 class TestPetRoutes(TestCommon):
-    
+
     def test_pet__create_pet__expected_success(self):
         access_token, _ = self.create_user_and_get_tokens(
             'user1@email.com', 'password')
-        self.api_client.credentials(HTTP_AUTHORIZATION='Bearer ' + access_token)
+        self.api_client.credentials(
+            HTTP_AUTHORIZATION='Bearer ' + access_token)
 
         u1 = User.objects.get(username='user1@email.com')
 
@@ -29,7 +31,8 @@ class TestPetRoutes(TestCommon):
     def test_pet__create_pet_with_picture__expected_success(self):
         access_token, _ = self.create_user_and_get_tokens(
             'user1@email.com', 'password')
-        self.api_client.credentials(HTTP_AUTHORIZATION='Bearer ' + access_token)
+        self.api_client.credentials(
+            HTTP_AUTHORIZATION='Bearer ' + access_token)
 
         u1 = User.objects.get(username='user1@email.com')
 

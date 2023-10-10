@@ -3,8 +3,7 @@ from rest_framework.permissions import BasePermission
 
 class OwnerPermission(BasePermission):
     def has_object_permission(self, request, view, obj):
-        return False
-        # return request.user in obj.owner.all()
+        return request.user in obj.owner.all()
 
 
 class ViewerPermission(BasePermission):

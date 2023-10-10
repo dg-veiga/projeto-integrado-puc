@@ -9,4 +9,5 @@ export const endpoints = {
   allowAnyRoute: 'allow_any_route/',
   token: 'token/',
   tokenRefresh: 'token/refresh/',
+  createPet: 'create_pet/',
 };

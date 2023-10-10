@@ -1,0 +1,16 @@
+.petPictureRow {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.petPicture {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 100px;
+    border-color: purple;
+    border-width: 10px;
+    border-style: solid;
+}

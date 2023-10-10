@@ -8,6 +8,8 @@ import Link from 'next/link';
 import styles from './styles.module.css';
 import { Col, Image, Row } from 'react-bootstrap';
 
+import { TbLogout } from 'react-icons/tb';
+
 export default function Header({}) {
   const { userInfo } = useContext(MainContext);
 
@@ -32,19 +34,34 @@ export default function Header({}) {
   }, [userInfo]);
 
   return (
-      <Row className={styles.header}>
-        <Col md={2}>
-          <Link href='/home'>
-            <img src={'./assets/logo_petpal_f.png'} alt="" className={styles.headerPhoto}/>
-          </Link>
-        </Col>
-        <Col md={8}>
-          <h1>Placeholder Name</h1>
-          <h3 className='row'>{email}</h3>
-        </Col>
-        <Col md={2}>
-          <button onClick={logoutHandler}>Logout</button>
-        </Col>
-      </Row>
+    <Row className={styles.header}>
+      <Col md={2}>
+        <Link href='/home'>
+          <img
+            src={'/assets/logo_petpal_f.png'}
+            alt=''
+            className={styles.headerPhoto}
+          />
+        </Link>
+      </Col>
+      <Col md={6}>
+        <h1>Placeholder Name</h1>
+        <h3>{email}</h3>
+      </Col>
+      <Col md={2}>
+        <TbLogout
+          size={100}
+          className={styles.logoutIcon}
+          onClick={logoutHandler}
+        />
+      </Col>
+      <Col md={2}>
+        <TbLogout
+          size={100}
+          className={styles.logoutIcon}
+          onClick={logoutHandler}
+        />
+      </Col>
+    </Row>
   );
 }

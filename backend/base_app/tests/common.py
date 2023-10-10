@@ -1,8 +1,8 @@
 from django.test import Client, TestCase
 from rest_framework.test import APIClient
-from base_app.models import User
+from base_app.models import User, Pet
 from project.core_models.aws_config import AWSConfig
-
+from typing import List
 from django.conf import settings
 
 class TestCommon(TestCase):
@@ -38,3 +38,10 @@ class TestCommon(TestCase):
         user = User.objects.get(username=email)
         user.refresh_from_db()
         return self._tokens(user, password)
+
+    def create_pet_for_owner(self, users: List[User], pet_data: dict):
+        pet_data = pet_data.copy()
+        # pet_data.update({'owner': [u.id for u in users]})
+        pet = Pet.objects.create(**pet_data)
+        pet.owner.set([u.id for u in users])
+        return pet

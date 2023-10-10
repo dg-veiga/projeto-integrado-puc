@@ -1,0 +1,17 @@
+.weightChartBox {
+    margin: 1rem 0;
+}
+
+.weightChart {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: rgb(21, 13, 29);
+}
+
+.weightInputForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

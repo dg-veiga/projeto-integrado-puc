@@ -1,13 +1,34 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from base_app.models import Pet, User, WeighingRecord
+from base_app.models import Pet, User, WeighingRecord, Event
 
 
 
-class PetSerializer(serializers.ModelSerializer):
+class UserSimpleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'email', 'first_name']
+
+
+class PetListSerializer(serializers.ModelSerializer):
+    events_num = serializers.SerializerMethodField()
+
+    def get_events_num(self, obj):
+        return Event.objects.filter(pet=obj).count()
+    
     class Meta:
         model = Pet
+        fields = ['id', 'name', 'species', 'breed', 'birth_date', 
+                  'adoption_date', 'picture', 'events_num']
+
+
+
+
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
         fields = '__all__'
 
 
@@ -17,7 +38,7 @@ class PetCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pet
         fields = ['name', 'species', 'breed', 'birth_date', 
-                  'adoption_date', 'picture', 'owner']
+                  'adoption_date', 'picture']
 
 
 class UserRetrieveSerializer(serializers.ModelSerializer):
@@ -25,7 +46,7 @@ class UserRetrieveSerializer(serializers.ModelSerializer):
 
     def get_pets(self, obj):
         pets = Pet.objects.filter(owner=obj)
-        return PetSerializer(pets, read_only=True, many=True).data
+        return PetRetrieveSerializer(pets, read_only=True, many=True).data
 
     class Meta:
         model = User
@@ -42,7 +63,48 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         return data
     
 
+class PetWeighingRecordSerializer(serializers.ModelSerializer):
+    weights = serializers.SerializerMethodField()
+
+    def get_weights(self, obj):
+        weights = WeighingRecord.objects.filter(pet=obj)
+        return WeighingRecordSerializer(weights, many=True).data
+
+    class Meta:
+        model = Pet
+        fields = ['weights']
+
+
+class PetRetrieveSerializer(PetWeighingRecordSerializer, serializers.ModelSerializer):
+    events = serializers.SerializerMethodField()
+    viewers = serializers.SerializerMethodField()
+
+    def get_viewers(self, obj):
+        return UserSimpleSerializer(obj.viewer.all(), many=True).data
+
+    def get_events(self, obj):
+        events = Event.objects.filter(pet=obj)
+        return EventSerializer(events, many=True).data
+    
+    class Meta:
+        model = Pet
+        fields = ['name', 'species', 'breed', 'birth_date', 
+                  'adoption_date', 'picture', 'owner', 
+                  'viewers', 'events', 'weights']
+
+
 class WeighingRecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = WeighingRecord
-        fields = '__all__'
+        fields = ['date', 'weight']
+        ordering = ['-date']
+
+
+class CreateWeighingRecordSerializer(serializers.Serializer):
+    # weights = serializers.SerializerMethodField()
+    weight = serializers.FloatField(required=True)
+    date = serializers.DateField(required=True)
+    pet_id = serializers.IntegerField(required=True)
+
+    class Meta:
+        fields = ['date', 'weight', 'pet_id']
