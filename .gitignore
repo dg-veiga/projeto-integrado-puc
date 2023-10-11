@@ -36,6 +36,7 @@ directo_backend/media/
 
 # pycache files
 *__pycache__/
+*.pyc
 
 # Log files
 *.log
@@ -76,3 +77,7 @@ Thumbs.db
 
 # Diagram class 
 class_diagram.png
+
+# .evns
+.env
+*.env
