@@ -42,7 +42,7 @@ const Login: React.FC = () => {
         <div className='bs-docs-section'>
           <div className='row' style={{ justifyContent: 'center' }}>
             <div className={styles.loginBox}>
-              <img src={'./assets/logo_petpal_f.png'} alt="Logo" width={'240px'}/>
+              <img src={'./assets/logo_petpal.png'} alt="Logo" width={'240px'}/>
               <h1>Petpal</h1>
               <h3>Seu amigo em primeiro lugar</h3>
               <form 

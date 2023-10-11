@@ -38,7 +38,7 @@ export default function Header({}) {
       <Col md={2}>
         <Link href='/home'>
           <img
-            src={'/assets/logo_petpal_f.png'}
+            src={'/assets/logo_petpal.png'}
             alt=''
             className={styles.headerPhoto}
           />
