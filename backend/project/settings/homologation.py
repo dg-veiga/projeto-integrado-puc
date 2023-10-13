@@ -12,4 +12,6 @@ DATABASES = {
     }
 }
 
+CSRF_TRUSTED_ORIGINS = [os.getenv('WEBSITE_URL')]
+
 from ._aws_settings import *
