@@ -56,6 +56,10 @@ base_app/migrations/*
 !base_app/migrations/0002_alter_pet_adoption_date_alter_pet_birth_date.py
 !base_app/migrations/0003_event.py
 !base_app/migrations/0004_weighingrecord.py
+!base_app/migrations/0005_file_pet_breed_pet_species_eventfile_petfile_picture_and_more.py
+!base_app/migrations/0006_alter_pet_picture_delete_petpicture.py
+!base_app/migrations/0007_alter_weighingrecord_options_weighingrecord_date.py
+!base_app/migrations/0008_alter_weighingrecord_observation.py
 
 # Diagram class 
 class_diagram.png

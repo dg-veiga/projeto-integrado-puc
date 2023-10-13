@@ -19,7 +19,7 @@ from project.core_models import RootObject
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+PROJECT_DIR = os.path.join(BASE_DIR.parent)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -171,6 +171,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Fixtures
+
+FIXTURE_DIRS = [
+    os.path.join(PROJECT_DIR, f'base_app/fixture/defaults/dumps'),
+]
+
+STATICFILES_DIRS = [os.path.join(PROJECT_DIR, 'base_app/static')]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
