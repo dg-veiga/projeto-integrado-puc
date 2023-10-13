@@ -29,10 +29,10 @@ venv/
 
 # Settings, static and media files
 *docker_dev.py
-directo_backend/staticfiles/
-directo_backend/mediafiles/
-directo_backend/static/
-directo_backend/media/
+project/staticfiles/
+project/mediafiles/
+project/static/
+project/media/
 
 # pycache files
 *__pycache__/

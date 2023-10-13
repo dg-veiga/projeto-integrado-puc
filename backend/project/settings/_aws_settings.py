@@ -25,14 +25,14 @@ if USE_S3:
     # s3 public media settings
     PUBLIC_MEDIA_LOCATION = 'media/public'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'directo_backend.core_models.storage_backends.PublicMediaStorage'
+    DEFAULT_FILE_STORAGE = 'project.core_models.storage_backends.PublicMediaStorage'
     # s3 private media settings
     PRIVATE_MEDIA_LOCATION = 'media/private'
-    PRIVATE_FILE_STORAGE = 'directo_backend.core_models.storage_backends.PrivateMediaStorage'
+    PRIVATE_FILE_STORAGE = 'project.core_models.storage_backends.PrivateMediaStorage'
     # s3 static settings
     if USE_S3_STATICFILES:
         STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-        STATICFILES_STORAGE = 'directo_backend.core_models.storage_backends.StaticStorage'
+        STATICFILES_STORAGE = 'project.core_models.storage_backends.StaticStorage'
         STATIC_FILES_ABSOLUTE_URL = STATIC_URL
     else:
         STATIC_URL = '/static/'
