@@ -6,6 +6,9 @@ import {MainContext, MainProvider} from '../../contexts/Main'
 import { api,  } from '../../services/api';
 import PetCard from '../PetCard';
 import { useRouter } from 'next/router';
+import styles from './styles.module.css';
+import { BsFillPencilFill } from 'react-icons/bs';
+
 
 export interface EventData {
   id: Number
@@ -13,28 +16,34 @@ export interface EventData {
   description: String 
   event_date: Date 
   event_time: Date 
+  picture: string
 }
 
-export function EventCard({event}) {
+export function EventCard({event, petId=null}) {
 
   console.log(event)
 
   return (
-    <Card>
+    <Card className={styles.eventCard} >
       <Row>
-        <Col>
-          <div style={{width: '120px', height: '120px', backgroundColor: 'red', borderRadius: '60px'}}></div>
+        <Col md={3} className={styles.petPictureCol}>
+            <img src={event.picture} alt="" className={styles.petPicture} />
         </Col>
-        <Col>
+        <Col className={styles.infoCol} >
           <Row>
             <h3>{event.title}</h3>
-            <Link href='#'>Editar evento</Link>
+            <Link href={`/pet/${petId}/evento/${event.id}`}>Editar evento</Link>
           </Row>
-          <Row>{event.description}</Row>
+          <Row><p>{event.description}</p></Row>
           <Row>
-            <Col>Data: <Badge>{event.event_date}</Badge></Col>
-            <Col>Hora: <Badge>{event.event_time}</Badge></Col>
+            <Col><strong>Data: <Badge>{event.event_date}</Badge></strong></Col>
+            <Col><strong>Hora: <Badge>{event.event_time}</Badge></strong></Col>
           </Row>
+        </Col>
+        <Col md={1} className={styles.actionsCol} >
+          <BsFillPencilFill size={40}/>
+          <BsFillPencilFill size={30}/>
+          <BsFillPencilFill size={30}/>
         </Col>
       </Row>
     </Card> 

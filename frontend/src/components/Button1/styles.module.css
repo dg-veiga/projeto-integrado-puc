@@ -4,16 +4,17 @@
 #Button1 {
     width: 200px;
     height: 60px;
-    background-color: var(--bs-pink); 
+    /* background-color: var(--bs-pink);  */
     font-weight: bolder;
     font-size: larger;
     box-shadow: var(--bs-box-shadow-md);
+    margin: 1rem;
 }
 
 #Button1:hover {
     width: 200px;
     height: 60px;
-    background-color: var(--bs-secondary); 
+    /* background-color: var(--bs-secondary);  */
     font-weight: bolder;
     font-size: larger;
     box-shadow: none;

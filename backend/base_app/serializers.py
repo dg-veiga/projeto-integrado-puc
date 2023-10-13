@@ -23,13 +23,18 @@ class PetListSerializer(serializers.ModelSerializer):
                   'adoption_date', 'picture', 'events_num']
 
 
-
-
-
 class EventSerializer(serializers.ModelSerializer):
+    picture = serializers.SerializerMethodField()
+
+    def get_picture(self, obj):
+        if obj.pet.picture:
+            return obj.pet.picture.url
+        return None
+    
     class Meta:
         model = Event
-        fields = '__all__'
+        fields = ['description', 'event_date', 'event_time', 'id',
+                  'pet', 'title', 'category', 'picture']
 
 
 class PetCreateSerializer(serializers.ModelSerializer):
@@ -58,7 +63,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
         data['id'] = self.user.id
-        data['full_name'] = self.user.first_name
+        data['first_name'] = self.user.first_name
         data['email'] = self.user.email
         return data
     

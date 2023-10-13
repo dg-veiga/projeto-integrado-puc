@@ -6,12 +6,13 @@ import styles from './styles.module.css';
 interface Props{
     type: "button" | "submit" | "reset"
     children: any
+    variant?: 'primary' | 'secondary' | 'danger'
 }
 
-function Button1({type}: Props) {
+function Button1({type, children, variant='secondary'}: Props) {
     return (
-        <button type={type} className='btn btn-primary' id={styles.Button1}>
-            Submit
+        <button type={type} className={`btn btn-${variant}`} id={styles.Button1}>
+            {children}
         </button>
     );
 };

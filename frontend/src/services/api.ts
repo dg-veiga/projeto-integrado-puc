@@ -10,4 +10,5 @@ export const endpoints = {
   token: 'token/',
   tokenRefresh: 'token/refresh/',
   createPet: 'create_pet/',
+  event: 'event/',
 };

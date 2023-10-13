@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import BottomContainer from '../../../components/BottomContainer';
 import { MainContext, MainProvider } from '../../../contexts/Main';
 import Header from '../../../components/Header';
@@ -49,7 +49,7 @@ function PetPageBoxes() {
   }
 
   const mappedEvents = () => {
-    return events.map((event, index) => <EventCard event={event} />);
+    return events.map((event, index) => <EventCard event={event} petId={slug}/>);
   };
 
   useEffect(() => {

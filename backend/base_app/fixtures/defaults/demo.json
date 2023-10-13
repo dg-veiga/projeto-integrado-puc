@@ -755,7 +755,7 @@
     "last_login": null,
     "is_superuser": false,
     "username": "petowner01@mail.com",
-    "first_name": "",
+    "first_name": "Jane Doe",
     "last_name": "",
     "email": "petowner01@mail.com",
     "is_staff": false,
@@ -776,7 +776,7 @@
     "last_login": null,
     "is_superuser": false,
     "username": "petviewer01@mail.com",
-    "first_name": "",
+    "first_name": "Dr. John Doe",
     "last_name": "",
     "email": "petviewer01@mail.com",
     "is_staff": false,
@@ -1180,7 +1180,55 @@
     "owner": [
       1
     ],
+    "viewer": [
+      2
+    ]
+  }
+},
+{
+  "model": "base_app.pet",
+  "pk": 2,
+  "fields": {
+    "name": "Sherlock",
+    "species": 2,
+    "breed": "Sabujo",
+    "birth_date": "2020-02-10",
+    "adoption_date": "2020-03-10",
+    "picture": "pet_pictures/2/ad6feef1-be97-44fa-a0ab-42190c77ea5a.png",
+    "owner": [
+      1
+    ],
     "viewer": []
+  }
+},
+{
+  "model": "base_app.pet",
+  "pk": 3,
+  "fields": {
+    "name": "Beethoven",
+    "species": 2,
+    "breed": "São Bernardo",
+    "birth_date": "2020-02-10",
+    "adoption_date": "2020-03-10",
+    "picture": null,
+    "owner": [
+      2
+    ],
+    "viewer": []
+  }
+},
+{
+  "model": "base_app.event",
+  "pk": 1,
+  "fields": {
+    "created_at": "2023-10-12T15:58:14.892Z",
+    "updated_at": "2023-10-12T15:58:14.892Z",
+    "title": "Consulta Médica com o Dr. John",
+    "pet": 1,
+    "category": 1,
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, rerum iure. Facilis molestiae beatae quod aperiam molestias aliquid, error maiores sapiente, aspernatur unde cupiditate. Nam sit tempora natus ipsum earum.",
+    "event_date": "2023-10-15",
+    "event_time": "10:00:00.000"
   }
 },
 {

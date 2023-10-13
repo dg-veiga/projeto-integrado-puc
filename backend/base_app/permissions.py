@@ -16,9 +16,10 @@ class UserRetrieveUpdatePermission(BasePermission):
         return request.user == obj
 
 
-class PetRetrieveAsOwnerPermission(BasePermission):
+class EventRetrievePermission(BasePermission):
     def has_object_permission(self, request, view, obj):
-        return request.user in obj.owner.all()
+        return request.user in obj.pet.owner.all() or \
+            request.user in obj.pet.viewer.all()
 
 
 class PetRetrieveAsViewerPermission(BasePermission):

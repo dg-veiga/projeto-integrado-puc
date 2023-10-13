@@ -46,7 +46,7 @@ export default function EventsList({}) {
   }, [])
 
   const events = eventList.map((event: EventData, index) => 
-    <EventCard event={event} />
+    <EventCard event={event} petId={null}/>
   )
 
   return (
