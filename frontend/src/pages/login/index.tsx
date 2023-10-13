@@ -1,40 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Button1 from '../../components/Button1'
+import Button1 from '../../components/Button1';
+import { Row, Col } from 'react-bootstrap';
 
-import styles from './styles.module.scss';
+import styles from './styles.module.css';
 
 import { login, getUserDetails } from '../../redux/actions/userActions';
 import { useDispatch } from 'react-redux';
+import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 
-import {
-  useSelector,
-  TypedUseSelectorHook,
-} from 'react-redux'
-import { RootState } from '../../redux/store'
+import { useSelector, TypedUseSelectorHook } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 const Login: React.FC = () => {
-
-  const [ email, setEmail ] = useState('')
-  const [ password, setPassword ] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const router = useRouter();
-  
+
   const dispatch = useDispatch();
   const useReduxSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const userLogin = useReduxSelector(state => state.userLogin);
+  const userLogin = useReduxSelector((state) => state.userLogin);
   const { error, loading, userInfo } = userLogin;
 
   const handleSubmit = (email, password) => {
-    dispatch(login(email,password) as any)
-  }
+    dispatch(login(email, password) as any);
+  };
 
   useEffect(() => {
-    if(userInfo){
+    if (userInfo) {
       // dispatch()
-      router.push('home/')
+      router.push('home/');
     }
-  }, [userInfo])
+  }, [userInfo]);
 
   return (
     <body className={styles.loginBody}>
@@ -42,21 +41,24 @@ const Login: React.FC = () => {
         <div className='bs-docs-section'>
           <div className='row' style={{ justifyContent: 'center' }}>
             <div className={styles.loginBox}>
-              <img src={'./assets/logo_petpal.png'} alt="Logo" width={'240px'}/>
+              <img
+                src={'./assets/logo_petpal.png'}
+                alt='Logo'
+                width={'240px'}
+              />
               <h1>Petpal</h1>
               <h3>Seu amigo em primeiro lugar</h3>
-              <form 
-                action='submit' 
-                className={styles.loginForm} 
-                onSubmit={event => { 
-                  event.preventDefault(); 
+              <form
+                action='submit'
+                className={styles.loginForm}
+                onSubmit={(event) => {
+                  event.preventDefault();
                   // console.log(email, password);
                   handleSubmit(email, password);
-                  }
-                }
+                }}
               >
                 <fieldset>
-                  <div className='form-group'>
+                  <div className='col form-group'>
                     <div className='form-floating mb-3'>
                       <input
                         type='email'
@@ -69,7 +71,7 @@ const Login: React.FC = () => {
                     </div>
                     <div className='form-floating'>
                       <input
-                        type='password'
+                        type={showPassword ? 'text' : 'password'}
                         className='form-control'
                         id='floatingPassword'
                         placeholder='Password'
@@ -77,11 +79,31 @@ const Login: React.FC = () => {
                         onChange={(e) => setPassword(e.target.value)}
                       />
                       <label htmlFor='floatingPassword'>Password</label>
+                      <div style={{ width: '2rem' }}>
+                        {showPassword ? (
+                          <AiOutlineEye size={30} 
+                            onClick={() => setShowPassword(false)}
+                            className={styles.passwordEye}
+                          />
+                        ) : (
+                          <AiOutlineEyeInvisible size={30}
+                            onClick={() => setShowPassword(true)}
+                            className={styles.passwordEye}
+                          />
+                        )}
+                      </div>
                     </div>
                   </div>
-                  <Button1 type={"submit"}>
-                    Submit
-                  </Button1>
+                  <Row
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Button1 type={'submit'}>Submit</Button1>
+                  </Row>
                 </fieldset>
               </form>
             </div>
