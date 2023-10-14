@@ -72,7 +72,7 @@ class PetWeighingRecordSerializer(serializers.ModelSerializer):
     weights = serializers.SerializerMethodField()
 
     def get_weights(self, obj):
-        weights = WeighingRecord.objects.filter(pet=obj)
+        weights = WeighingRecord.objects.filter(pet=obj).order_by('-date')
         return WeighingRecordSerializer(weights, many=True).data
 
     class Meta:
@@ -113,3 +113,11 @@ class CreateWeighingRecordSerializer(serializers.Serializer):
 
     class Meta:
         fields = ['date', 'weight', 'pet_id']
+
+
+class SetViewerSerializer(serializers.Serializer):
+    email = serializers.CharField(required=True)
+    pet_id = serializers.IntegerField(required=True)
+
+    class Meta:
+        fields = ['email', 'pet_id']

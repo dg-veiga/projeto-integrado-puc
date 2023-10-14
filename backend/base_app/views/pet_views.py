@@ -1,18 +1,43 @@
-from base_app.models import Pet
+from base_app.models import Pet, User
 from base_app.permissions import OwnerPermission, ViewerPermission
-from base_app.serializers import PetListSerializer, PetRetrieveSerializer, PetCreateSerializer
+from base_app.serializers import PetListSerializer, PetRetrieveSerializer, PetCreateSerializer, SetViewerSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
 
 
-class SetViewerToPet(APIView):
+class PetViewerView(APIView):
     queryset = Pet.objects.all()
-    serializer_class = PetRetrieveSerializer
+    serializer_class = SetViewerSerializer
+    permission_classes = [OwnerPermission]
+    http_method_names = ['post', 'patch']
 
+    def post(self, request):
+        request_data = request.data
+        serializer = self.serializer_class(data=request_data)
+        if serializer.is_valid(raise_exception=True):
+            user = get_object_or_404(User, email=serializer['email'].value)
+            pet = get_object_or_404(Pet, pk=serializer['pet_id'].value)
+            pet.viewer.add(user)
+            pet.save()
+            pet.refresh_from_db()
+            return Response(PetRetrieveSerializer(pet).data, status=status.HTTP_200_OK)
+        
+    def patch(self, request):
+        request_data = request.data
+        serializer = self.serializer_class(data=request_data)
+        if serializer.is_valid(raise_exception=True):
+            user = get_object_or_404(User, email=serializer['email'].value)
+            pet = get_object_or_404(Pet, pk=serializer['pet_id'].value)
+            pet.viewer.remove(user)
+            pet.save()
+            pet.refresh_from_db()
+            return Response(PetRetrieveSerializer(pet).data, status=status.HTTP_200_OK)
+            
 
 class PetViewSet(ModelViewSet):
     queryset = Pet.objects.all()

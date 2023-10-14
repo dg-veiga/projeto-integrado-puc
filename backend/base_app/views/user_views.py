@@ -20,9 +20,10 @@ def is_authenticated_route(request):
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def allow_any_route(request):
+def healthcheck(request):
     response = {'detail': 'success'}
     return Response(response)
+
 
 class UserRetrieveUpdateView(RetrieveUpdateAPIView):
     queryset = User.objects.filter(is_active=True)

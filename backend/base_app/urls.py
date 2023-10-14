@@ -1,5 +1,5 @@
-from base_app.views.user_views import allow_any_route, is_authenticated_route, CustomTokenObtainPairView, UserRetrieveUpdateView
-from base_app.views.pet_views import PetViewSet, CreatePetView
+from base_app.views.user_views import healthcheck, is_authenticated_route, CustomTokenObtainPairView, UserRetrieveUpdateView
+from base_app.views.pet_views import PetViewSet, CreatePetView, PetViewerView
 from base_app.views.event_views import EventViewSet
 from base_app.views.weighing_views import CreateWeightRecordView, WeightRecordViewset
 from django.urls import path, include
@@ -17,12 +17,12 @@ urlpatterns = [
     path('token/', CustomTokenObtainPairView.as_view()),
     path('token/refresh/', TokenRefreshView.as_view()),
     path('user/<int:pk>/', UserRetrieveUpdateView.as_view()),
-    path('allow_any_route/', allow_any_route),
+    path('health/', healthcheck),
     path('is_authenticated_route/', is_authenticated_route),
     
     path('create_pet/', CreatePetView.as_view()),
     path('create_weight/', CreateWeightRecordView.as_view()),
-    # path('set_viewer/', function),
+    path('viewer/', PetViewerView.as_view()),
     path('reset_environment_data/', reset_environment_data_route),
     
     path(r'', include(router.urls)),
