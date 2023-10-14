@@ -1,10 +1,7 @@
-import Link from 'next/link';
 import React, { useContext, useEffect, useState } from 'react';
-// import styles from './styles.module.scss';
 import { Card, Row, Col, Form, Button } from 'react-bootstrap';
 import { MainContext, MainProvider } from '../../contexts/Main';
 import { api, endpoints } from '../../services/api';
-import PetCard from '../PetCard';
 import styles from './styles.module.css';
 import Button1 from '../Button1';
 import Toast from 'react-bootstrap/Toast';
@@ -167,16 +164,7 @@ export default function CreateEventForm({ id, oldEventId = null }) {
             onChange={(e) => setDescription(e.target.value)}
           />
         </Form.Group>
-        {/* <Form.Group controlId="formFile" className="mb-3">
-        <h3>Anexos:</h3>
-        <Form.Control type="file" />
-      </Form.Group>
-      <Form.Group controlId="formFile" className="mb-3">
-        <h3>Fotos:</h3>
-        <Form.Control type="file" />
-      </Form.Group> */}
         <Row className={styles.formRow}>
-          
           {oldEventId ? (
             <>
               <Button1 type='submit'>Editar evento</Button1>

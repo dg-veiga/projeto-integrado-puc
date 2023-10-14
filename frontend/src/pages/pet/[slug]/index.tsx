@@ -4,15 +4,16 @@ import BottomContainer from '../../../components/BottomContainer';
 import { MainContext, MainProvider } from '../../../contexts/Main';
 import Header from '../../../components/Header';
 import MainContainer from '../../../components/MainContainer';
-import { EventData, EventCard } from '../../../components/EventCard';
-import CreateEventForm from '../../../components/CreateEventForm';
-import { api, endpoints } from '../../../services/api';
+import { EventCard } from '../../../components/EventCard';
+import { api } from '../../../services/api';
 import { Col, Row } from 'react-bootstrap';
 
 import { FaPaw } from 'react-icons/fa';
 import styles from './styles.module.css';
+import WeightRecord from '../../../components/WeightRecord';
+import ViewersList from '../../../components/ViewersList';
+import Link from 'next/link';
 
-// import { Card, Row, Col, Form, Button } from 'react-bootstrap'
 
 function PetPageBoxes() {
   const router = useRouter();
@@ -49,7 +50,9 @@ function PetPageBoxes() {
   }
 
   const mappedEvents = () => {
-    return events.map((event, index) => <EventCard event={event} petId={slug}/>);
+    return events.map((event, index) => (
+      <EventCard event={event} petId={slug} />
+    ));
   };
 
   useEffect(() => {
@@ -63,26 +66,38 @@ function PetPageBoxes() {
   return (
     <>
       <Row>
-        <FaPaw size={80}/>
         <h1>{name}</h1>
       </Row>
       <BottomContainer>
-          <Row md={12} className={styles.petPictureRow}>
-            <img src={petPicture} alt="" className={styles.petPicture} />
-          </Row>
-        <Row>
+        <Row md={12} className={styles.petPictureRow}>
+          <img src={petPicture} alt='' className={styles.petPicture} />
+        </Row>
+        <Row className={styles.sectionRow}>
           <Col>
             <h2>Próximos eventos:</h2>
           </Col>
-          <Col>
-            <h2 style={{textAlign: 'left'}}>+ Adicionar evento</h2>
+          <Col style={{ textAlign: 'right' }}>
+            <h2>
+              <Link href={`#`}>+ Criar evento</Link>
+            </h2>
           </Col>
+          {events ? <>{mappedEvents()}</> : <></>}
         </Row>
-        {events ? <>{mappedEvents()}</> : <></>}
-        <h2>Peso:</h2>
-        {weights ? <>{mappedEvents()}</> : <></>}
-        <h2>Amigos:</h2>
-        {viewers ? <>{mappedEvents()}</> : <></>}
+        <Row className={styles.sectionRow}>
+          <Col>
+            <h2>Acompanhamento de peso:</h2>
+          </Col>
+          <Col style={{ textAlign: 'right' }}>
+            <h2>
+              <Link href={`/pet/${slug}/peso`}>+ Adicionar pesagem</Link>
+            </h2>
+          </Col>
+          {weights ? <WeightRecord id={slug} showForm={'false'}/> : <></>}
+        </Row>
+        <Row className={styles.sectionRow}>
+          <h2>Compartilhado com:</h2>
+          <ViewersList petId={slug} viewersList={viewers} />
+        </Row>
       </BottomContainer>
     </>
   );

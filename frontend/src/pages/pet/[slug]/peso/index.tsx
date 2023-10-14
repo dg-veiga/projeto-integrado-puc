@@ -1,20 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Header from '../../../../components/Header';
-import Mai from '../../../../components/Header';
-import { MainContext, MainProvider } from '../../../../contexts/Main';
-import { Container } from 'react-bootstrap'
+import { MainProvider } from '../../../../contexts/Main';
 
-import { api, endpoints } from '../../../../services/api';
-import { login, getUserDetails } from '../../../../redux/actions/userActions';
-import { useDispatch } from 'react-redux';
-
-import { useSelector, TypedUseSelectorHook } from 'react-redux';
-import { RootState } from '../../../../redux/store';
 import MainContainer from '../../../../components/MainContainer';
 import BottomContainer from '../../../../components/BottomContainer';
-import PetCard from '../../../../components/PetCard';
-import PetList from '../../../../components/PetList';
 import WeightRecord from '../../../../components/WeightRecord';
 
 const Evento: React.FC = () => {
@@ -31,8 +21,8 @@ const Evento: React.FC = () => {
 
   return (
     <MainProvider>
-      <Header />
       <MainContainer>
+      <Header />
       <h1>Histórico de peso:</h1>
       <BottomContainer>
         {slug? <WeightRecord id={slug} />:<></>}

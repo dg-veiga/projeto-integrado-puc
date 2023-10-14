@@ -6,11 +6,19 @@
     display: flex;
     align-self: center;
     justify-content: center;
+    margin: 1rem;
     padding: 2rem;
     background-color: rgb(21, 13, 29);
 }
 
 .weightInputForm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.addWeightButton {
     display: flex;
     align-items: center;
     justify-content: center;
