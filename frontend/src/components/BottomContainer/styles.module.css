@@ -1,0 +1,9 @@
+.bottomContainer {
+    width: 100%;
+    min-height: 600px;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    padding: 2rem 6rem;
+    background-color: #B9D9E8;
+    box-shadow: var(--bs-box-shadow-lg);
+}

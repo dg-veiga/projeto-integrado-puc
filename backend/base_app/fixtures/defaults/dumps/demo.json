@@ -1,0 +1,1339 @@
+[
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add Token",
+      "content_type": 6,
+      "codename": "add_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change Token",
+      "content_type": 6,
+      "codename": "change_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete Token",
+      "content_type": 6,
+      "codename": "delete_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view Token",
+      "content_type": 6,
+      "codename": "view_token"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add token",
+      "content_type": 7,
+      "codename": "add_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change token",
+      "content_type": 7,
+      "codename": "change_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete token",
+      "content_type": 7,
+      "codename": "delete_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view token",
+      "content_type": 7,
+      "codename": "view_tokenproxy"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add Usuário",
+      "content_type": 8,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change Usuário",
+      "content_type": 8,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete Usuário",
+      "content_type": 8,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view Usuário",
+      "content_type": 8,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add Pet",
+      "content_type": 9,
+      "codename": "add_pet"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change Pet",
+      "content_type": 9,
+      "codename": "change_pet"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete Pet",
+      "content_type": 9,
+      "codename": "delete_pet"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view Pet",
+      "content_type": 9,
+      "codename": "view_pet"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add Evento",
+      "content_type": 10,
+      "codename": "add_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change Evento",
+      "content_type": 10,
+      "codename": "change_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete Evento",
+      "content_type": 10,
+      "codename": "delete_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view Evento",
+      "content_type": 10,
+      "codename": "view_event"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add Registro de pesagem",
+      "content_type": 11,
+      "codename": "add_weighingrecord"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change Registro de pesagem",
+      "content_type": 11,
+      "codename": "change_weighingrecord"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete Registro de pesagem",
+      "content_type": 11,
+      "codename": "delete_weighingrecord"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view Registro de pesagem",
+      "content_type": 11,
+      "codename": "view_weighingrecord"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add file",
+      "content_type": 12,
+      "codename": "add_file"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change file",
+      "content_type": 12,
+      "codename": "change_file"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete file",
+      "content_type": 12,
+      "codename": "delete_file"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view file",
+      "content_type": 12,
+      "codename": "view_file"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add picture",
+      "content_type": 13,
+      "codename": "add_picture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change picture",
+      "content_type": 13,
+      "codename": "change_picture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete picture",
+      "content_type": 13,
+      "codename": "delete_picture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view picture",
+      "content_type": 13,
+      "codename": "view_picture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can add user profile picture",
+      "content_type": 14,
+      "codename": "add_userprofilepicture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can change user profile picture",
+      "content_type": 14,
+      "codename": "change_userprofilepicture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+      "name": "Can delete user profile picture",
+      "content_type": 14,
+      "codename": "delete_userprofilepicture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+      "name": "Can view user profile picture",
+      "content_type": 14,
+      "codename": "view_userprofilepicture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+      "name": "Can add pet file",
+      "content_type": 15,
+      "codename": "add_petfile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+      "name": "Can change pet file",
+      "content_type": 15,
+      "codename": "change_petfile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+      "name": "Can delete pet file",
+      "content_type": 15,
+      "codename": "delete_petfile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+      "name": "Can view pet file",
+      "content_type": 15,
+      "codename": "view_petfile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+      "name": "Can add event file",
+      "content_type": 16,
+      "codename": "add_eventfile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+      "name": "Can change event file",
+      "content_type": 16,
+      "codename": "change_eventfile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+      "name": "Can delete event file",
+      "content_type": 16,
+      "codename": "delete_eventfile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+      "name": "Can view event file",
+      "content_type": 16,
+      "codename": "view_eventfile"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+      "name": "Can add event picture",
+      "content_type": 17,
+      "codename": "add_eventpicture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+      "name": "Can change event picture",
+      "content_type": 17,
+      "codename": "change_eventpicture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+      "name": "Can delete event picture",
+      "content_type": 17,
+      "codename": "delete_eventpicture"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+      "name": "Can view event picture",
+      "content_type": 17,
+      "codename": "view_eventpicture"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "token"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "authtoken",
+      "model": "tokenproxy"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "base_app",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "base_app",
+      "model": "pet"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "base_app",
+      "model": "event"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "base_app",
+      "model": "weighingrecord"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "base_app",
+      "model": "file"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "base_app",
+      "model": "picture"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "base_app",
+      "model": "userprofilepicture"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "base_app",
+      "model": "petfile"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "base_app",
+      "model": "eventfile"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "base_app",
+      "model": "eventpicture"
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$sOlgwnokqHbznu1k5ELLzB$wbxizPyuC0ODX07I8JpfCUllLGsEPaSv5U30FrOMaYw=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin@admin.com",
+      "first_name": "Admin",
+      "last_name": "",
+      "email": "admin@admin.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:17.905Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:18.660Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$5Z74anEmQ1OWNPsXwRAhdf$ozxj76nvAG+f+4rCAp6c5eH6+y+owxfMAG5VigaKSfE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner01@mail.com",
+      "first_name": "Jane Doe",
+      "last_name": "",
+      "email": "petowner01@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:18.666Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:19.108Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$20egO9LGC1kEKDzSbvgUTz$zsFYL7p9QkTqcZ37TQwg2CLs4PqyjsaDWQ0PzLy4Xsg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner02@mail.com",
+      "first_name": "John Doe",
+      "last_name": "",
+      "email": "petowner02@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:19.114Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:19.539Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$jfM3OQwoNUAVkEtGh5WKOI$zv7+5P8jMKloQ+r+1P30kym1iEkB3SmmE32K08tVzaQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner03@mail.com",
+      "first_name": "Tutor 03",
+      "last_name": "",
+      "email": "petowner03@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:19.544Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:19.969Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$346ml7IgiPgq9PHLlrd5Qc$uUhUEig75bJzQgwFir+BA2dh5T4ArN/P2wPLNcsavGQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner04@mail.com",
+      "first_name": "Tutor 04",
+      "last_name": "",
+      "email": "petowner04@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:19.975Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:20.396Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$oLIYkK9cUwXZJJx3AhZIaA$js4SOx8D6wnco6VOKTsfcpSQ+IJ5k8ekj0k1kG4wpFw=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner05@mail.com",
+      "first_name": "Tutor 05",
+      "last_name": "",
+      "email": "petowner05@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:20.402Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:20.843Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$7lXBdQQ1PAuLFDM2S3wF9g$6vcy/EZ+wUNi/mOnLjOa5Ju4csXm0XdsLOuWCKbzh8E=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner06@mail.com",
+      "first_name": "Tutor 06",
+      "last_name": "",
+      "email": "petowner06@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:20.849Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:21.263Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$rQEhmCJtZyabMLRxy5RUIG$OszaWlULsKLOXRghfOQ5GXWFGHu6H/9+vAPRZDEllsI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner07@mail.com",
+      "first_name": "Tutor 07",
+      "last_name": "",
+      "email": "petowner07@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:21.269Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:21.686Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$VAD4h2hKJ40CkHTJcuYMJx$cNbmiP3cOBwAB+4/2nCDqHfXGJ5wJOLfPHLxlf09IbA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner08@mail.com",
+      "first_name": "Tutor 08",
+      "last_name": "",
+      "email": "petowner08@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:21.691Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:22.109Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$mrwfS0GoKnL3AYlMo0G5YR$YL6upzWMlB6s/yd4wQ4056nOYAzzuOYthEyuCQEzwPY=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner09@mail.com",
+      "first_name": "Tutor 09",
+      "last_name": "",
+      "email": "petowner09@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:22.114Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:22.531Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$g9xuNAukkmNTJVrxE5bwZc$soxwJ5axq1bJTp17faxTFyGi5T0Ol7YtB48bZLJvWhw=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner10@mail.com",
+      "first_name": "Tutor 10",
+      "last_name": "",
+      "email": "petowner10@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:22.537Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:22.956Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$Aou45M8YlZQUZZmctIHPTA$PU1rfdVSRKcnsEnFlZpofWa+XjOpLhHcdvBN1mtf1Yk=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner11@mail.com",
+      "first_name": "Tutor 11",
+      "last_name": "",
+      "email": "petowner11@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:22.965Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:23.377Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 13,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$VfWAKSjju1VmIgIgOarzO0$Ry1fwAjtZyYvoH0vGtkI5VMTc9ej23H+wZkRvrmSTqs=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner12@mail.com",
+      "first_name": "Tutor 12",
+      "last_name": "",
+      "email": "petowner12@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:23.383Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:23.825Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 14,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$fgw7Rlhrn5L7UJ63yhYVuy$sQrDYg8p7V6LmcPNIBrz7IPWR4F7iYhdSALvKUHzSWU=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner13@mail.com",
+      "first_name": "Tutor 13",
+      "last_name": "",
+      "email": "petowner13@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:23.831Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:24.248Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 15,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$EcJyQcjWuHNQu1oQTNaAMD$Wg7TIr06Aelgz+0mIGvL9EvIAQf3qUEjDB3OGmM7+S0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner14@mail.com",
+      "first_name": "Tutor 14",
+      "last_name": "",
+      "email": "petowner14@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:24.253Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:24.675Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 16,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$poigZWNJrALw9XO9x1uXa9$UfK9nGAMCr+BSKQ0LB+xH0Lj8c2TjU7hWMwyaVAKRWc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner15@mail.com",
+      "first_name": "Tutor 15",
+      "last_name": "",
+      "email": "petowner15@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:24.681Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:25.117Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 17,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$apfpkUjgYiYTLaSgY11DwN$Uw4R5KZoMADbkK8GeuxBt915WOSst7oa41Pl6ADxRbI=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner16@mail.com",
+      "first_name": "Tutor 16",
+      "last_name": "",
+      "email": "petowner16@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:25.123Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:25.563Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$eHCzogKLTWlWdiMBPXYBW5$5CvonH0tb2DQMnQE0fEaU5uH/VY1WbykwoqyySAqdBc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner17@mail.com",
+      "first_name": "Tutor 17",
+      "last_name": "",
+      "email": "petowner17@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:25.570Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:26.046Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 19,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$Bw8EvmnhEjXSU51tRVyvgP$PFkqTaUEpkHF9cuvb1DuWjED4Wz/vD+/pyfXu+NnRiQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner18@mail.com",
+      "first_name": "Tutor 18",
+      "last_name": "",
+      "email": "petowner18@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:26.052Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:26.474Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 20,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$sdyra3W5LnppMywhLabdI8$XX4fog5dznJD+CtirhsA0UfImPzzdyRvnOidZYmr1Do=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner19@mail.com",
+      "first_name": "Tutor 19",
+      "last_name": "",
+      "email": "petowner19@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:26.480Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:26.906Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.user",
+    "pk": 21,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$EIKZJC3bBE0vc0IRrurMss$SY9EzWs34EIMeRjwS9rga4hIUuqpTuv/xFBgMgDon80=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "petowner20@mail.com",
+      "first_name": "Tutor 20",
+      "last_name": "",
+      "email": "petowner20@mail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-13T17:04:26.912Z",
+      "picture": "",
+      "created_at": "2023-10-13",
+      "updated_at": "2023-10-13T17:04:27.336Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "base_app.pet",
+    "pk": 1,
+    "fields": {
+      "name": "Erick Jacquin",
+      "species": 2,
+      "breed": "SRD",
+      "birth_date": "2020-02-10",
+      "adoption_date": "2020-03-10",
+      "picture": "pet_pictures/1/cat1.png",
+      "owner": [
+        2
+      ],
+      "viewer": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "base_app.pet",
+    "pk": 2,
+    "fields": {
+      "name": "Sherlock",
+      "species": 2,
+      "breed": "Sabujo",
+      "birth_date": "2020-02-10",
+      "adoption_date": "2020-03-10",
+      "picture": "pet_pictures/2/dog1.png",
+      "owner": [
+        2
+      ],
+      "viewer": []
+    }
+  },
+  {
+    "model": "base_app.pet",
+    "pk": 3,
+    "fields": {
+      "name": "Beethoven",
+      "species": 2,
+      "breed": "São Bernardo",
+      "birth_date": "2020-02-10",
+      "adoption_date": "2020-03-10",
+      "picture": null,
+      "owner": [
+        3
+      ],
+      "viewer": []
+    }
+  },
+  {
+    "model": "base_app.event",
+    "pk": 1,
+    "fields": {
+      "created_at": "2023-10-12T15:58:14.892Z",
+      "updated_at": "2023-10-12T15:58:14.892Z",
+      "title": "Consulta Médica com o Dr. John",
+      "pet": 1,
+      "category": 1,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, rerum iure. Facilis molestiae beatae quod aperiam molestias aliquid, error maiores sapiente, aspernatur unde cupiditate. Nam sit tempora natus ipsum earum.",
+      "event_date": "2023-10-15",
+      "event_time": "10:00:00.000"
+    }
+  },
+  {
+    "model": "base_app.weighingrecord",
+    "pk": 1,
+    "fields": {
+      "created_at": "2023-10-10T01:28:30.509Z",
+      "updated_at": "2023-10-10T01:28:30.509Z",
+      "pet": 1,
+      "weight": 5.85,
+      "date": "2023-03-01",
+      "observation": null
+    }
+  },
+  {
+    "model": "base_app.weighingrecord",
+    "pk": 2,
+    "fields": {
+      "created_at": "2023-10-10T01:28:46.457Z",
+      "updated_at": "2023-10-10T01:28:46.457Z",
+      "pet": 1,
+      "weight": 6.1,
+      "date": "2023-03-30",
+      "observation": null
+    }
+  },
+  {
+    "model": "base_app.weighingrecord",
+    "pk": 3,
+    "fields": {
+      "created_at": "2023-10-10T01:29:07.415Z",
+      "updated_at": "2023-10-10T01:29:07.415Z",
+      "pet": 1,
+      "weight": 5.8,
+      "date": "2023-04-15",
+      "observation": null
+    }
+  },
+  {
+    "model": "base_app.weighingrecord",
+    "pk": 4,
+    "fields": {
+      "created_at": "2023-10-10T01:29:31.223Z",
+      "updated_at": "2023-10-10T01:29:31.223Z",
+      "pet": 1,
+      "weight": 5.9,
+      "date": "2023-04-25",
+      "observation": null
+    }
+  },
+  {
+    "model": "base_app.weighingrecord",
+    "pk": 5,
+    "fields": {
+      "created_at": "2023-10-10T01:29:45.908Z",
+      "updated_at": "2023-10-10T01:29:45.908Z",
+      "pet": 1,
+      "weight": 5.5,
+      "date": "2023-06-05",
+      "observation": null
+    }
+  },
+  {
+    "model": "base_app.weighingrecord",
+    "pk": 6,
+    "fields": {
+      "created_at": "2023-10-10T01:29:56.896Z",
+      "updated_at": "2023-10-10T01:29:56.896Z",
+      "pet": 1,
+      "weight": 5.7,
+      "date": "2023-06-30",
+      "observation": null
+    }
+  },
+  {
+    "model": "base_app.weighingrecord",
+    "pk": 7,
+    "fields": {
+      "created_at": "2023-10-10T01:30:11.408Z",
+      "updated_at": "2023-10-10T01:30:11.408Z",
+      "pet": 1,
+      "weight": 5.7,
+      "date": "2023-07-09",
+      "observation": null
+    }
+  }
+]
