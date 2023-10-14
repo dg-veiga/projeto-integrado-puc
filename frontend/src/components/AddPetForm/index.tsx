@@ -6,9 +6,11 @@ import Button1 from '../../components/Button1';
 import { MainContext, MainProvider } from '../../contexts/Main';
 import { BsFillCameraFill, BsFillTrashFill } from 'react-icons/bs';
 import { api, endpoints } from '../../services/api';
+import { useRouter } from 'next/router';
 
 export default function AddPetForm() {
   const { userInfo } = useContext(MainContext);
+  const router = useRouter();
 
   const [imageInput, setImageInput] = useState(null);
   const [imageURL, setImageURL] = useState<string>(null);
@@ -42,6 +44,7 @@ export default function AddPetForm() {
         })
         .then((response) => {
           console.log(response.data);
+          router.push('/home')
         })
         .catch((err) => console.log(err));
     }
