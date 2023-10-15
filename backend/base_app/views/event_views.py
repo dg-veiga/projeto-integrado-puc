@@ -1,5 +1,5 @@
 from base_app.models import Pet, Event
-from base_app.permissions import EventRetrievePermission
+from base_app.permissions import EventRetrievePermission, OwnerPermission
 from base_app.serializers import EventSerializer
 from rest_framework.viewsets import ModelViewSet
 from rest_framework import serializers
@@ -22,3 +22,8 @@ class EventViewSet(ModelViewSet):
             return [event for event in qs if (self.request.user in event.pet.owner.all() or self.request.user in event.pet.owner.all())]
         else:
             return super().get_queryset()
+
+    def get_permissions(self):
+        if self.action == 'create':
+            self.permission_classes = [OwnerPermission]
+        return super().get_permissions()
