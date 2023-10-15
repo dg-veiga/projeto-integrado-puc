@@ -1197,7 +1197,7 @@
       "breed": "SRD",
       "birth_date": "2020-02-10",
       "adoption_date": "2020-03-10",
-      "picture": "pet_pictures/1/cat1.png",
+      "picture": "pet_pictures/1/erick_jacquin.png",
       "owner": [
         2
       ],
@@ -1211,11 +1211,11 @@
     "pk": 2,
     "fields": {
       "name": "Sherlock",
-      "species": 2,
+      "species": 1,
       "breed": "Sabujo",
       "birth_date": "2020-02-10",
       "adoption_date": "2020-03-10",
-      "picture": "pet_pictures/2/dog1.png",
+      "picture": "pet_pictures/2/sherlock.png",
       "owner": [
         2
       ],
@@ -1227,11 +1227,11 @@
     "pk": 3,
     "fields": {
       "name": "Beethoven",
-      "species": 2,
+      "species": 1,
       "breed": "São Bernardo",
       "birth_date": "2020-02-10",
       "adoption_date": "2020-03-10",
-      "picture": null,
+      "picture": "pet_pictures/3/beethoven.png",
       "owner": [
         3
       ],
