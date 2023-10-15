@@ -19,11 +19,6 @@ class EventViewSet(ModelViewSet):
                 qs = Event.objects.filter(pet__id=pet)
             else: 
                 qs = super().get_queryset()
-            return [event for event in qs if (self.request.user in event.pet.owner.all() or self.request.user in event.pet.owner.all())]
+            return [event for event in qs if (self.request.user in event.pet.owner.all() or self.request.user in event.pet.viewer.all())]
         else:
             return super().get_queryset()
-
-    def get_permissions(self):
-        if self.action == 'create':
-            self.permission_classes = [OwnerPermission]
-        return super().get_permissions()

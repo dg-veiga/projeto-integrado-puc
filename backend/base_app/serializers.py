@@ -97,7 +97,7 @@ class PetRetrieveSerializer(PetWeighingRecordSerializer, serializers.ModelSerial
     
     class Meta:
         model = Pet
-        fields = ['name', 'species', 'breed', 'birth_date', 
+        fields = ['id', 'name', 'species', 'breed', 'birth_date', 
                   'adoption_date', 'picture', 'owner', 
                   'viewers', 'events', 'weights']
 
