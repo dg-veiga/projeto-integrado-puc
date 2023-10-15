@@ -6,6 +6,7 @@ import { MainProvider } from '../../../../contexts/Main';
 import MainContainer from '../../../../components/MainContainer';
 import BottomContainer from '../../../../components/BottomContainer';
 import WeightRecord from '../../../../components/WeightRecord';
+import PetPictureContainerHeader from '../../../../components/PetPictureContainerHeader';
 
 const Evento: React.FC = () => {
   const router = useRouter();
@@ -25,6 +26,7 @@ const Evento: React.FC = () => {
       <Header />
       <h1>Histórico de peso:</h1>
       <BottomContainer>
+        <PetPictureContainerHeader petId={slug}/>
         {slug? <WeightRecord id={slug} />:<></>}
       </BottomContainer>
       </MainContainer>

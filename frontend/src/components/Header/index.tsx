@@ -47,8 +47,8 @@ export default function Header({}) {
         </Link>
       </Col>
       <Col md={6}>
-        <h1>{fullName}</h1>
-        <h3>{email}</h3>
+        <h1 style={{color: '#f2f2f2'}}>{fullName}</h1>
+        <h3 style={{color: '#f2f2f2'}}>{email}</h3>
       </Col>
       <Col md={2}>
         <AiFillCalendar

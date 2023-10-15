@@ -27,12 +27,11 @@ export default function PetCard({
   const weightURL = `pet/${id}/peso`;
 
   const bd = new Date(birthDate);
+  const formattedBD = `${bd.getUTCDate()}/${String(bd.getUTCMonth()).padStart(2, "0")}/${bd.getUTCFullYear()}`;
 
   var x = moment(Date.now());
   var y = moment(adoptionDate);
   var age = moment.duration(x.diff(y));
-  console.log(age);
-  console.log(petPicture)
 
   return (
     <Card className={styles.petCard}>
@@ -47,7 +46,7 @@ export default function PetCard({
           <p>
             meu amigo a {age.years()} anos e {age.months()} meses
           </p>
-          <p>Data de nascimento: {bd.toLocaleDateString()}</p>
+          <p>Data de nascimento: {formattedBD}</p>
           <Row>
             <Col>
               <Link href={eventURL}>Ver eventos</Link>

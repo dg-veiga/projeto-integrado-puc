@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { MainContext } from '../../contexts/Main';
 import { api } from '../../services/api';
 import {
   LineChart,
+  AreaChart,
+  Area,
   Line,
   CartesianGrid,
   XAxis,
@@ -13,7 +15,7 @@ import {
 import styles from './styles.module.css';
 import { useRouter } from 'next/router';
 
-export default function WeightRecord({id, showForm = 'true'}) {
+export default function WeightRecord({ id, showForm = 'true' }) {
   const [weight, setWeight] = useState('0.0');
   const [weightDate, setWeightDate] = useState('0.0');
   const [weightRecords, setWeightRecords] = useState([]);
@@ -21,7 +23,7 @@ export default function WeightRecord({id, showForm = 'true'}) {
   const { userInfo } = useContext(MainContext);
   const router = useRouter();
 
-  function getWeightRecords({ id }) {
+  function getWeightRecords(id) {
     async function _call() {
       const url = `weight/${id}/`;
       await api
@@ -40,7 +42,7 @@ export default function WeightRecord({id, showForm = 'true'}) {
     _call();
   }
 
-  function setNewWeightRecord({ id }) {
+  function setNewWeightRecord(id) {
     async function _call() {
       const url = `create_weight/`;
       const data = { pet_id: id, weight: weight, date: weightDate };
@@ -65,28 +67,46 @@ export default function WeightRecord({id, showForm = 'true'}) {
   };
 
   const renderLineChart = (
-    <LineChart
-      width={600}
+    <AreaChart
+      width={900}
       height={300}
       data={weightRecords}
       margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
     >
+      <defs>
+        <linearGradient id='colorPv' x1='0' y1='0' x2='0' y2='1'>
+          <stop offset='5%' stopColor='#82ca9d' stopOpacity={0.8} />
+          <stop offset='95%' stopColor='#82ca9d' stopOpacity={0} />
+        </linearGradient>
+      </defs>
       <Line type='monotone' dataKey='weight' stroke='#8884d8' />
       <CartesianGrid stroke='#ccc' strokeDasharray='5 5' />
       <XAxis dataKey='date' />
       <YAxis />
       <Tooltip />
-    </LineChart>
+      <Area
+        type='monotone'
+        dataKey='weight'
+        stroke='#82ca9d'
+        fillOpacity={1}
+        fill='url(#colorPv)'
+      />
+    </AreaChart>
   );
 
   useEffect(() => {
     console.log('showForm', showForm);
+    console.log('id', id);
     getWeightRecords(id);
   }, []);
 
   return (
     <>
-      <div className={styles.weightChart}>{renderLineChart}</div>
+      {weightRecords.length > 0 ? (
+        <div className={styles.weightChart}>{renderLineChart}</div>
+      ) : (
+        <Alert variant={'info'}>Não existem registros de pesagem.</Alert>
+      )}
       {showForm == 'false' ? (
         <></>
       ) : (

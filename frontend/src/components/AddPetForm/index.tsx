@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import styles from './styles.module.css';
-import { Row, Col, Form, Button, Image } from 'react-bootstrap';
+import { Row, Col, Form, Image } from 'react-bootstrap';
 import Button1 from '../../components/Button1';
 
-import { MainContext, MainProvider } from '../../contexts/Main';
+import { MainContext } from '../../contexts/Main';
 import { BsFillCameraFill, BsFillTrashFill } from 'react-icons/bs';
 import { api, endpoints } from '../../services/api';
 import { useRouter } from 'next/router';

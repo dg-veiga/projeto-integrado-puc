@@ -6,7 +6,7 @@ import Header from '../../../components/Header';
 import MainContainer from '../../../components/MainContainer';
 import { EventCard } from '../../../components/EventCard';
 import { api } from '../../../services/api';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Alert } from 'react-bootstrap';
 
 import { FaPaw } from 'react-icons/fa';
 import styles from './styles.module.css';
@@ -78,10 +78,10 @@ function PetPageBoxes() {
           </Col>
           <Col style={{ textAlign: 'right' }}>
             <h2>
-              <Link href={`#`}>+ Criar evento</Link>
+              <Link href={`/pet/${slug}/evento`}>+ Criar evento</Link>
             </h2>
           </Col>
-          {events ? <>{mappedEvents()}</> : <></>}
+          {events.length > 0 ? <>{mappedEvents()}</> : <Alert>Não existem eventos cadastrados.</Alert>}
         </Row>
         <Row className={styles.sectionRow}>
           <Col>

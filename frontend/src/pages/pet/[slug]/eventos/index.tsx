@@ -3,14 +3,15 @@ import { useRouter } from 'next/router';
 import Header from '../../../../components/Header';
 import { MainContext, MainProvider } from '../../../../contexts/Main';
 
-import { api, endpoints } from '../../../../services/api';
+import { api } from '../../../../services/api';
 
 import MainContainer from '../../../../components/MainContainer';
 import {EventCard} from '../../../../components/EventCard';
 import Link from 'next/link';
 
-import { Card, Row, Col, Form, Button } from 'react-bootstrap'
+import { Row, Col, Alert } from 'react-bootstrap'
 import BottomContainer from '../../../../components/BottomContainer';
+import PetPictureContainerHeader from '../../../../components/PetPictureContainerHeader';
 
 function EventsList({id}) {
   
@@ -53,7 +54,7 @@ function EventsList({id}) {
 
   return (
     <>
-      {events}
+      {eventList.length > 0 ? events : <Alert variant={'warning'}>Não existem eventos cadastrados para este pet.</Alert>}
     </>
   )
 }
@@ -86,6 +87,7 @@ const Eventos: React.FC = () => {
           </Col>
         </Row>
         <BottomContainer>
+          <PetPictureContainerHeader petId={petId}/>
           <EventsList id={slug} />
         </BottomContainer>
       </MainContainer>
