@@ -27,9 +27,9 @@
 }
 
 .photoTrashIcon {
-    position: fixed;
-    transform: translate(80%, -80%);
-    color: var(--bs-pink);
+    /* position: fixed; */
+    /* transform: translate(80%, -80%); */
+    color: var(--bs-gray-100);
 }
 
 .photoTrashIcon:hover {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import styles from './styles.module.css';
-import { Row, Col, Form, Image } from 'react-bootstrap';
+import { Row, Col, Form, Image, Button } from 'react-bootstrap';
 import Button1 from '../../components/Button1';
 
 import { MainContext } from '../../contexts/Main';
@@ -167,11 +167,12 @@ export default function AddPetForm() {
               </Col>
               {imageInput ? (
                 <Col md={2}>
-                  <BsFillTrashFill
-                    size={30}
-                    className={styles.photoTrashIcon}
-                    onClick={clearImage}
-                  />
+                  <Button onClick={clearImage}>
+                    <BsFillTrashFill
+                      size={20}
+                      className={styles.photoTrashIcon}
+                    />
+                  </Button>
                 </Col>
               ) : (
                 <></>
