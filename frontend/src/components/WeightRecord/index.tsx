@@ -34,7 +34,6 @@ export default function WeightRecord({ id, showForm = 'true' }) {
           },
         })
         .then((response) => {
-          console.log(response.data);
           setWeightRecords([...response.data.weights].reverse());
         })
         .catch((err) => console.log(err));
@@ -54,7 +53,6 @@ export default function WeightRecord({ id, showForm = 'true' }) {
           },
         })
         .then((response) => {
-          console.log(response.data);
           router.reload();
         })
         .catch((err) => console.log(err));
@@ -95,8 +93,6 @@ export default function WeightRecord({ id, showForm = 'true' }) {
   );
 
   useEffect(() => {
-    console.log('showForm', showForm);
-    console.log('id', id);
     getWeightRecords(id);
   }, []);
 

@@ -19,10 +19,37 @@ export interface EventData {
 }
 
 export function EventCard({ event, petId = null }) {
-  console.log(event);
-  // const eventTime = new Date(event.event_time);
+  const { amIOwner } = useContext(MainContext);
   const eventTime = moment(event.event_time, 'HH:mm:ss');
-  console.log(eventTime);
+
+  let color = '#c2d9ff';
+  let category = 'Regular';
+
+  const cardTypeAndColor = () => {
+    switch (event.category) {
+      case 1:
+        color = '#91b2eb';
+        category = 'Regular';
+        break;
+      case 2:
+        color = '#eb5757';
+        category = 'Saúde';
+        break;
+      case 3:
+        color = '#7FBA00';
+        category = 'Consulta veterinária';
+        break;
+      case 4:
+        color = '#FCCB3C';
+        category = 'Vacina';
+        break;
+      default:
+        color = '#91b2eb';
+        category = 'Regular';
+    }
+  };
+
+  cardTypeAndColor();
 
   return (
     <Card className={styles.eventCard}>
@@ -35,12 +62,38 @@ export function EventCard({ event, petId = null }) {
             <h3>{event.title}</h3>
           </Row>
           <Row>
-            <a href={`/pet/${petId}/evento/${event.id}`}>
-              <>
-                <BsFillPencilFill size={20} style={{marginRight: '0.5rem'}}/>
-                Editar evento
-              </>
-            </a>
+            {amIOwner(event.pet) ? (
+              <a href={`/pet/${petId}/evento/${event.id}`}>
+                <>
+                  <BsFillPencilFill
+                    size={20}
+                    style={{ marginRight: '0.5rem' }}
+                  />
+                  Editar evento
+                </>
+              </a>
+            ) : (
+              <></>
+            )}
+            <strong
+              style={{
+                display: 'flex',
+                marginTop: '1rem',
+                alignItems: 'center',
+              }}
+            >
+              CATEGORIA:{' '}
+              <div
+                style={{
+                  backgroundColor: `${color}`,
+                  width: '2rem',
+                  height: '2rem',
+                  borderRadius: '1rem',
+                  margin: '0 0.5rem',
+                }}
+              />
+              {category}
+            </strong>
             <p>{event.description}</p>
           </Row>
           <Row>

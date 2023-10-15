@@ -11,7 +11,8 @@ interface PetData {
   birthDate: Date;
   adoptionDate: Date;
   petPicture: string;
-  eventNum: number
+  eventNum: number;
+  owner: boolean;
 }
 
 export default function PetCard({
@@ -20,14 +21,18 @@ export default function PetCard({
   birthDate,
   adoptionDate,
   petPicture,
-  eventNum
+  eventNum,
+  owner = false,
 }: PetData) {
   const eventURL = `pet/${id}/eventos`;
   const createEventURL = `pet/${id}/evento`;
   const weightURL = `pet/${id}/peso`;
 
   const bd = new Date(birthDate);
-  const formattedBD = `${bd.getUTCDate()}/${String(bd.getUTCMonth()).padStart(2, "0")}/${bd.getUTCFullYear()}`;
+  const formattedBD = `${bd.getUTCDate()}/${String(bd.getUTCMonth()).padStart(
+    2,
+    '0'
+  )}/${bd.getUTCFullYear()}`;
 
   var x = moment(Date.now());
   var y = moment(adoptionDate);
@@ -38,22 +43,26 @@ export default function PetCard({
       <Row className={styles.petRow}>
         <Col md={3} className={styles.petPictureCol}>
           <a href={`/pet/${id}/`}>
-            <img src={petPicture} alt="" className={styles.petPicture} />
+            <img src={petPicture} alt='' className={styles.petPicture} />
           </a>
         </Col>
         <Col md={9}>
           <h2>{name}</h2>
           <p>
-            meu amigo a {age.years()} anos e {age.months()} meses
+            Meu amigo a {age.years()} anos e {age.months()} meses
           </p>
           <p>Data de nascimento: {formattedBD}</p>
           <Row>
             <Col>
               <Link href={eventURL}>Ver eventos</Link>
             </Col>
-            <Col>
-              <Link href={createEventURL}>Criar evento</Link>
-            </Col>
+            {owner ? (
+              <Col>
+                <Link href={createEventURL}>Criar evento</Link>
+              </Col>
+            ) : (
+              <></>
+            )}
             <Col>
               <Link href={weightURL}>Acompanhamento de peso</Link>
             </Col>

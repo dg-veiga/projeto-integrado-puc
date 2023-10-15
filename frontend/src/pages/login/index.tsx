@@ -55,7 +55,6 @@ const Login: React.FC = () => {
                 className={styles.loginForm}
                 onSubmit={(event) => {
                   event.preventDefault();
-                  // console.log(email, password);
                   handleSubmit(email, password);
                 }}
               >

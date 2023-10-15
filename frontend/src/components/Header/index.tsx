@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 import { Col, Row } from 'react-bootstrap';
 
 import { TbLogout } from 'react-icons/tb';
-import { AiFillCalendar } from 'react-icons/ai';
+
 
 export default function Header({}) {
   const { userInfo } = useContext(MainContext);
@@ -26,12 +26,11 @@ export default function Header({}) {
 
   useEffect(() => {
     if (userInfo) {
-      console.log(userInfo)
       dispatch(getUserDetails(userInfo.id) as any);
       setEmail(userInfo.email);
       setFullName(userInfo.first_name);
     } else {
-      router.push('login/');
+      router.push('/login');
     }
   }, [userInfo]);
 
@@ -46,16 +45,9 @@ export default function Header({}) {
           />
         </Link>
       </Col>
-      <Col md={6}>
+      <Col md={8}>
         <h1 style={{color: '#f2f2f2'}}>{fullName}</h1>
         <h3 style={{color: '#f2f2f2'}}>{email}</h3>
-      </Col>
-      <Col md={2}>
-        <AiFillCalendar
-          size={100}
-          className={styles.logoutIcon}
-          onClick={() => router.push('/calendar')}
-        />
       </Col>
       <Col md={2}>
         <TbLogout

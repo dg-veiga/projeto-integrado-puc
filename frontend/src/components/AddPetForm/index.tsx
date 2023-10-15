@@ -32,7 +32,6 @@ export default function AddPetForm() {
   }
 
   function createPet(data: FormData) {
-    console.log(data);
     async function _call() {
       const url = endpoints.createPet;
       await api
@@ -43,7 +42,6 @@ export default function AddPetForm() {
           },
         })
         .then((response) => {
-          console.log(response.data);
           router.push('/home')
         })
         .catch((err) => console.log(err));
@@ -60,7 +58,6 @@ export default function AddPetForm() {
     formData.append('adoption_date', adoptionDate);
     formData.append('weight', weight);
     formData.append('picture', imageInput);
-    console.log(formData);
     createPet(formData);
   };
 

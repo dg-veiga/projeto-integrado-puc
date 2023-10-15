@@ -15,7 +15,6 @@ export default function ViewersList({ petId, viewersList }) {
 
   function setNewViewer(data: FormData) {
     async function _call() {
-      console.log(data);
       const url = `viewer/`;
       await api
         .post(url, data, {
@@ -25,7 +24,6 @@ export default function ViewersList({ petId, viewersList }) {
           },
         })
         .then((response) => {
-          console.log(response.data);
           router.reload();
         })
         .catch((err) => console.log(err));
@@ -40,7 +38,6 @@ export default function ViewersList({ petId, viewersList }) {
         email: email,
         pet_id: petId,
       };
-      console.log(data);
       await api
         .patch(url, data, {
           headers: {
@@ -49,7 +46,6 @@ export default function ViewersList({ petId, viewersList }) {
           },
         })
         .then((response) => {
-          console.log(response.data);
           router.reload();
         })
         .catch((err) => console.log(err));

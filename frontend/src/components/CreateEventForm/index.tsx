@@ -34,7 +34,6 @@ export default function CreateEventForm({ id, oldEventId = null }) {
           headers: headers,
         })
         .then((response) => {
-          console.log(response.data);
           router.push(`/pet/${id}/eventos`);
         })
         .catch((err) => {
@@ -52,7 +51,6 @@ export default function CreateEventForm({ id, oldEventId = null }) {
           headers: headers,
         })
         .then((response) => {
-          console.log(response.data);
           router.push(`/pet/${id}/eventos`);
         })
         .catch((err) => {
@@ -71,7 +69,6 @@ export default function CreateEventForm({ id, oldEventId = null }) {
   }
 
   function getEventForEdition(id) {
-    console.log(id);
     async function _call() {
       const url = `event/${id}/`;
       await api
@@ -102,7 +99,6 @@ export default function CreateEventForm({ id, oldEventId = null }) {
           },
         })
         .then((response) => {
-          console.log(response.data);
           router.push(`/pet/${id}/eventos`)
         })
         .catch((err) => console.log(err));
@@ -153,7 +149,6 @@ export default function CreateEventForm({ id, oldEventId = null }) {
 
   useEffect(() => {
     if (oldEventId) {
-      console.log(oldEventId);
       getEventForEdition(oldEventId);
     }
   }, []);
@@ -174,7 +169,7 @@ export default function CreateEventForm({ id, oldEventId = null }) {
         <Form.Group className='mb-3'>
           <Form.Label>Categoria</Form.Label>
           <Form.Select onChange={(e) => setCategory(e.target.value as any)}>
-            <option value={1}>Simples</option>
+            <option value={1}>Regular</option>
             <option value={2}>Saúde</option>
             <option value={3}>Consulta veterinária</option>
             <option value={4}>Vacina</option>

@@ -14,17 +14,18 @@ import WeightRecord from '../../../components/WeightRecord';
 import ViewersList from '../../../components/ViewersList';
 import Link from 'next/link';
 
-
 function PetPageBoxes() {
   const router = useRouter();
-  const { userInfo } = useContext(MainContext);
+  const { userInfo, getSharedPetsIds, amIOwner } = useContext(MainContext);
   const { slug } = router.query;
 
+  const [petId, setPetId] = useState();
   const [name, setName] = useState('');
   const [petPicture, setPetPicture] = useState('');
   const [events, setEvents] = useState([]);
-  const [weights, setWeights] = useState([]);
+  const [weights, setWeights] = useState(null);
   const [viewers, setViewers] = useState([]);
+  const [amIOwnerState, setAmIOwnerState] = useState(false);
 
   function getPetPageInfo() {
     async function _call() {
@@ -37,7 +38,7 @@ function PetPageBoxes() {
           },
         })
         .then((response) => {
-          console.log(response.data);
+          setPetId(response.data.id);
           setName(response.data.name);
           setPetPicture(response.data.picture);
           setEvents([...response.data.events]);
@@ -50,18 +51,30 @@ function PetPageBoxes() {
   }
 
   const mappedEvents = () => {
+
     return events.map((event, index) => (
-      <EventCard event={event} petId={slug} />
+      <EventCard event={event} petId={event.pet} />
     ));
+  };
+
+  const weightsChart = () => {
+    return <WeightRecord id={slug} showForm={'false'} />
   };
 
   useEffect(() => {
     if (!slug) {
       return;
     } else {
+      
       getPetPageInfo();
     }
   }, [slug]);
+
+  useEffect(()=>{
+    if (petId) {
+      setAmIOwnerState(amIOwner(petId))
+    }
+  }, [petId])
 
   return (
     <>
@@ -76,28 +89,44 @@ function PetPageBoxes() {
           <Col>
             <h2>Próximos eventos:</h2>
           </Col>
-          <Col style={{ textAlign: 'right' }}>
-            <h2>
-              <Link href={`/pet/${slug}/evento`}>+ Criar evento</Link>
-            </h2>
-          </Col>
-          {events.length > 0 ? <>{mappedEvents()}</> : <Alert>Não existem eventos cadastrados.</Alert>}
+          {amIOwnerState ? (
+            <Col style={{ textAlign: 'right' }}>
+              <h2>
+                <Link href={`/pet/${slug}/evento`}>+ Criar evento</Link>
+              </h2>
+            </Col>
+          ) : (
+            <></>
+          )}
+          {events.length > 0 ? (
+            <>{mappedEvents()}</>
+          ) : (
+            <Alert>Não existem eventos cadastrados.</Alert>
+          )}
         </Row>
         <Row className={styles.sectionRow}>
           <Col>
             <h2>Acompanhamento de peso:</h2>
           </Col>
-          <Col style={{ textAlign: 'right' }}>
-            <h2>
-              <Link href={`/pet/${slug}/peso`}>+ Adicionar pesagem</Link>
-            </h2>
-          </Col>
-          {weights ? <WeightRecord id={slug} showForm={'false'}/> : <></>}
+          {amIOwnerState ? (
+            <Col style={{ textAlign: 'right' }}>
+              <h2>
+                <Link href={`/pet/${slug}/peso`}>+ Adicionar pesagem</Link>
+              </h2>
+            </Col>
+          ) : (
+            <></>
+          )}
+          {weights? weightsChart() : <></>}
         </Row>
-        <Row className={styles.sectionRow}>
-          <h2>Compartilhado com:</h2>
-          <ViewersList petId={slug} viewersList={viewers} />
-        </Row>
+        {amIOwnerState ? (
+          <Row className={styles.sectionRow}>
+            <h2>Compartilhado com:</h2>
+            <ViewersList petId={slug} viewersList={viewers} />
+          </Row>
+        ) : (
+          <></>
+        )}
       </BottomContainer>
     </>
   );

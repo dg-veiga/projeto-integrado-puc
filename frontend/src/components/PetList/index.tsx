@@ -11,7 +11,7 @@ export default function PetList() {
   const [petList, setPetList] = useState([]);
   const [sharedPetList, setSharedPetList] = useState([]);
 
-  const { userInfo } = useContext(MainContext);
+  const { userInfo, getSharedPetsIds, amIOwner } = useContext(MainContext);
 
   function getPetList() {
     async function _call() {
@@ -24,7 +24,6 @@ export default function PetList() {
           },
         })
         .then((response) => {
-          console.log(response.data);
           setPetList(response.data);
         })
         .catch((err) => console.log(err));
@@ -43,8 +42,11 @@ export default function PetList() {
           },
         })
         .then((response) => {
-          console.log(response.data);
           setSharedPetList(response.data);
+          localStorage.setItem(
+            'sharedPetsIds', 
+            JSON.stringify(response.data.map(obj => obj.id))
+          );
         })
         .catch((err) => console.log(err));
     }
@@ -65,6 +67,7 @@ export default function PetList() {
         adoptionDate={pet.adoption_date}
         petPicture={pet.picture}
         eventNum={pet.event_num}
+        owner={amIOwner(pet.id)}
       />
     ));
 

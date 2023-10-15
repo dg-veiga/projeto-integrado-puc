@@ -33,7 +33,6 @@ export default function EventsList({}) {
           }
         )
         .then((response) => {
-          console.log(response.data)
           setEventList(response.data);
         })
         .catch((err) => console.log(err));

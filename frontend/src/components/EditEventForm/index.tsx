@@ -14,32 +14,6 @@ export default function CreateEventForm({id: Number}) {
     userInfo,
   } = useContext(MainContext);
 
-//   function sendEventForm() {
-//     async function _call() {
-//       const url = `pet/`;
-//       await api
-//         .get(
-//           url,
-//           {
-//             headers: {
-//               'Content-type': 'application/json',
-//               Authorization: `Bearer ${userInfo.access}`,
-//             },
-//           }
-//         )
-//         .then((response) => {
-//           console.log(response.data)
-//           setPetList(response.data);
-//         })
-//         .catch((err) => console.log(err));
-//     }
-//     _call();
-//   }
-
-//   useEffect(() => {
-//     sendEventForm()
-//   }, [])
-
   return (
     <Form>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
