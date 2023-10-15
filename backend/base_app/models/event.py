@@ -38,12 +38,10 @@ class Event(CreatedAtUpdatedAtModel):
 
     event_date = models.DateField(
         verbose_name=_('Data do evento'),
-        auto_now=True,
         null=True)
 
     event_time = models.TimeField(
         verbose_name=_('Hora do evento'),
-        auto_now=True,
         null=True)
 
     class Meta:

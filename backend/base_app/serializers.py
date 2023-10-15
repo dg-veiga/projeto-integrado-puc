@@ -35,6 +35,10 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = ['description', 'event_date', 'event_time', 'id',
                   'pet', 'title', 'category', 'picture']
+        extra_kwargs = {
+            'event_date': {'required': True},
+            'event_time': {'required': True},
+        } 
 
 
 class PetCreateSerializer(serializers.ModelSerializer):
