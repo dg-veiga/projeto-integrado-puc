@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../../components/Header';
+import { MainProvider } from '../../contexts/Main';
 
 import { Row, Col } from 'react-bootstrap';
 
