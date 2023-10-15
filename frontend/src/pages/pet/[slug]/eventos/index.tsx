@@ -86,7 +86,7 @@ const Eventos: React.FC = () => {
           </Col>
         </Row>
         <BottomContainer>
-          <PetPictureContainerHeader petId={petId} />
+          <PetPictureContainerHeader petId={slug} />
           <EventsList id={slug} />
         </BottomContainer>
       </MainContainer>
