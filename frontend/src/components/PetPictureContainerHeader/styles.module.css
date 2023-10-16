@@ -1,21 +1,17 @@
 .petPictureRow {
     display: flex;
+    padding: 2rem;
     align-self: center;
     justify-content: center;
-    padding: 2rem;
 }
 
 .petPicture {
     width: 250px;
     height: 250px;
-    background-color: rgb(218, 218, 218);
+    background-color: #dadada;
     border-radius: 125px;
     border-color: purple;
     border-width: 10px;
     border-style: solid;
     padding: 0;
-}
-
-.sectionRow {
-    padding: 2rem;
 }

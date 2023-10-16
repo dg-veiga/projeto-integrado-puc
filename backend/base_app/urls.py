@@ -1,5 +1,7 @@
-from base_app.views.user_views import healthcheck, is_authenticated_route, CustomTokenObtainPairView, UserRetrieveUpdateView
-from base_app.views.pet_views import PetViewSet, CreatePetView, PetViewerView
+from base_app.views.user_views import (healthcheck, is_authenticated_route, 
+                                       CustomTokenObtainPairView, UserRetrieveUpdateView)
+from base_app.views.pet_views import (PetViewSet, CreatePetView, 
+                                      PetViewerView, SharedPetViewset)
 from base_app.views.event_views import EventViewSet
 from base_app.views.weighing_views import CreateWeightRecordView, WeightRecordViewset
 from django.urls import path, include
@@ -10,6 +12,7 @@ from base_app.views.generic_views import reset_environment_data_route
 
 router = DefaultRouter()
 router.register(r'pet', PetViewSet, basename='pet')
+router.register(r'shared_pet', SharedPetViewset, basename='shared_pet')
 router.register(r'event', EventViewSet, basename='event')
 router.register(r'weight', WeightRecordViewset, basename='event')
 

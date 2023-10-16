@@ -7,3 +7,7 @@
     background-color: #B9D9E8;
     box-shadow: var(--bs-box-shadow-lg);
 }
+
+.bottomContainer h2 {
+    color: var(--bs-gray-700);
+}

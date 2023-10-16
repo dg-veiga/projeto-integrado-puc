@@ -3,39 +3,32 @@ import { useRouter } from 'next/router';
 import Header from '../../../../components/Header';
 import { MainContext, MainProvider } from '../../../../contexts/Main';
 
-import { api, endpoints } from '../../../../services/api';
+import { api } from '../../../../services/api';
 
 import MainContainer from '../../../../components/MainContainer';
-import {EventCard} from '../../../../components/EventCard';
+import { EventCard } from '../../../../components/EventCard';
 import Link from 'next/link';
 
-import { Card, Row, Col, Form, Button } from 'react-bootstrap'
+import { Row, Col, Alert } from 'react-bootstrap';
 import BottomContainer from '../../../../components/BottomContainer';
+import PetPictureContainerHeader from '../../../../components/PetPictureContainerHeader';
 
-function EventsList({id}) {
-  
-  const [eventList, setEventList] = useState([])
+function EventsList({ id }) {
+  const [eventList, setEventList] = useState([]);
 
-  const {
-    userInfo,
-  } = useContext(MainContext);
+  const { userInfo, amIOwner } = useContext(MainContext);
 
   function getEventList(petId) {
     async function _call() {
-      console.log(petId)
       const url = petId ? `event/?pet=${petId}` : `event/`;
       await api
-        .get(
-          url,
-          {
-            headers: {
-              'Content-type': 'application/json',
-              Authorization: `Bearer ${userInfo.access}`,
-            },
-          }
-        )
+        .get(url, {
+          headers: {
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${userInfo.access}`,
+          },
+        })
         .then((response) => {
-          console.log(response.data)
           setEventList(response.data);
         })
         .catch((err) => console.log(err));
@@ -44,32 +37,37 @@ function EventsList({id}) {
   }
 
   useEffect(() => {
-    getEventList(id)
-  }, [id])
+    getEventList(id);
+  }, [id]);
 
-  const events = eventList.map((event, index) =>
-    <EventCard event={event} petId={id}/>
-  )
+  const events = eventList.map((event, index) => (
+    <EventCard event={event} petId={id} />
+  ));
 
   return (
     <>
-      {events}
+      {eventList.length > 0 ? (
+        events
+      ) : (
+        <Alert variant={'warning'}>
+          Não existem eventos cadastrados para este pet.
+        </Alert>
+      )}
     </>
-  )
+  );
 }
 
 const Eventos: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
 
-  const [petId, setPetId] = useState()
+  const [petId, setPetId] = useState(null);
 
   useEffect(() => {
     if (!slug) {
       return;
     } else {
-      console.log('slug', slug)
-      setPetId(slug as any)
+      setPetId(slug as any);
     }
   }, [slug]);
 
@@ -81,11 +79,14 @@ const Eventos: React.FC = () => {
           <Col>
             <h1>Eventos:</h1>
           </Col>
-          <Col style={{textAlign: 'right'}}>
-            <h2><Link href={`/pet/${petId}/evento`}>+ Criar evento</Link></h2>  
+          <Col style={{ textAlign: 'right' }}>
+            <h2>
+              <Link href={`/pet/${petId}/evento`}>+ Criar evento</Link>
+            </h2>
           </Col>
         </Row>
         <BottomContainer>
+          <PetPictureContainerHeader petId={slug} />
           <EventsList id={slug} />
         </BottomContainer>
       </MainContainer>

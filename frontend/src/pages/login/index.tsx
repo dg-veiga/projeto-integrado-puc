@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Button1 from '../../components/Button1';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button, Alert } from 'react-bootstrap';
 
 import styles from './styles.module.css';
 
@@ -30,7 +30,6 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (userInfo) {
-      // dispatch()
       router.push('home/');
     }
   }, [userInfo]);
@@ -45,15 +44,17 @@ const Login: React.FC = () => {
                 src={'./assets/logo_petpal.png'}
                 alt='Logo'
                 width={'240px'}
+                style={{marginTop: '2rem'}}
               />
-              <h1>Petpal</h1>
-              <h3>Seu amigo em primeiro lugar</h3>
+              <h1 className={styles.logoTitle}>PETPAL</h1>
+              <h4 className={styles.logoSubTitle}>SEU AMIGO EM</h4>
+              <h4 className={styles.logoSubTitle}>PRIMEIRO LUGAR</h4>
+              {error && <Alert variant='danger' dismissible>{error}</Alert>}
               <form
                 action='submit'
                 className={styles.loginForm}
                 onSubmit={(event) => {
                   event.preventDefault();
-                  // console.log(email, password);
                   handleSubmit(email, password);
                 }}
               >
@@ -67,9 +68,16 @@ const Login: React.FC = () => {
                         placeholder='name@example.com'
                         onChange={(e) => setEmail(e.target.value)}
                       />
-                      <label htmlFor='floatingInput'>Email</label>
+                      <label htmlFor='floatingInput'>E-mail</label>
                     </div>
-                    <div className='form-floating'>
+                    <div
+                      className='form-floating'
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                      }}
+                    >
                       <input
                         type={showPassword ? 'text' : 'password'}
                         className='form-control'
@@ -78,20 +86,20 @@ const Login: React.FC = () => {
                         autoComplete='off'
                         onChange={(e) => setPassword(e.target.value)}
                       />
-                      <label htmlFor='floatingPassword'>Password</label>
-                      <div style={{ width: '2rem' }}>
-                        {showPassword ? (
-                          <AiOutlineEye size={30} 
-                            onClick={() => setShowPassword(false)}
-                            className={styles.passwordEye}
-                          />
-                        ) : (
-                          <AiOutlineEyeInvisible size={30}
-                            onClick={() => setShowPassword(true)}
-                            className={styles.passwordEye}
-                          />
-                        )}
-                      </div>
+                      <label htmlFor='floatingPassword'>Senha</label>
+                      {showPassword ? (
+                        <AiOutlineEye
+                          size={30}
+                          onClick={() => setShowPassword(false)}
+                          className={styles.passwordEye}
+                        />
+                      ) : (
+                        <AiOutlineEyeInvisible
+                          size={30}
+                          onClick={() => setShowPassword(true)}
+                          className={styles.passwordEye}
+                        />
+                      )}
                     </div>
                   </div>
                   <Row
@@ -100,9 +108,12 @@ const Login: React.FC = () => {
                       flexDirection: 'column',
                       justifyContent: 'center',
                       alignItems: 'center',
+                      padding: '2rem'
                     }}
                   >
-                    <Button1 type={'submit'}>Submit</Button1>
+                    <Button type='submit' variant='secondary' size='lg'>
+                      <strong>Entrar</strong>
+                    </Button>
                   </Row>
                 </fieldset>
               </form>

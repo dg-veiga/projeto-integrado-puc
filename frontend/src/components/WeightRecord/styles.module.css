@@ -8,7 +8,8 @@
     justify-content: center;
     margin: 1rem;
     padding: 2rem;
-    background-color: rgb(21, 13, 29);
+    background-color: rgb(40, 13, 66);
+    border-radius: 10px;
 }
 
 .weightInputForm {

@@ -49,10 +49,20 @@ class PetViewSet(ModelViewSet):
         if self.action == 'list':
             self.serializer_class = PetListSerializer
             qs = super().get_queryset()
-            return [pet for pet in qs if (self.request.user in pet.owner.all() or self.request.user in pet.viewer.all())]
+            return [pet for pet in qs if (self.request.user in pet.owner.all())]
         else:
             return super().get_queryset()
+        
 
+class SharedPetViewset(PetViewSet):
+    def get_queryset(self):
+        if self.action == 'list':
+            self.serializer_class = PetListSerializer
+            qs = self.queryset
+            return [pet for pet in qs if (self.request.user in pet.viewer.all())]
+        else:
+            return super().get_queryset()
+        
 
 class CreatePetView(CreateAPIView):
     queryset = Pet.objects.all()

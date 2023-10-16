@@ -1,5 +1,5 @@
 /* @import url('../../styles/custom.css'); */
 
-.mainContainer {
-    background-color: red;
+.mainContainer h2 {
+    color: var(--bs-gray-700);
 }

@@ -35,6 +35,10 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = ['description', 'event_date', 'event_time', 'id',
                   'pet', 'title', 'category', 'picture']
+        extra_kwargs = {
+            'event_date': {'required': True},
+            'event_time': {'required': True},
+        } 
 
 
 class PetCreateSerializer(serializers.ModelSerializer):
@@ -93,7 +97,7 @@ class PetRetrieveSerializer(PetWeighingRecordSerializer, serializers.ModelSerial
     
     class Meta:
         model = Pet
-        fields = ['name', 'species', 'breed', 'birth_date', 
+        fields = ['id', 'name', 'species', 'breed', 'birth_date', 
                   'adoption_date', 'picture', 'owner', 
                   'viewers', 'events', 'weights']
 

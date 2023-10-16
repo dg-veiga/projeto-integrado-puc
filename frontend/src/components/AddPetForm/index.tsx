@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import styles from './styles.module.css';
-import { Row, Col, Form, Button, Image } from 'react-bootstrap';
+import { Row, Col, Form, Image, Button } from 'react-bootstrap';
 import Button1 from '../../components/Button1';
 
-import { MainContext, MainProvider } from '../../contexts/Main';
+import { MainContext } from '../../contexts/Main';
 import { BsFillCameraFill, BsFillTrashFill } from 'react-icons/bs';
 import { api, endpoints } from '../../services/api';
 import { useRouter } from 'next/router';
@@ -32,7 +32,6 @@ export default function AddPetForm() {
   }
 
   function createPet(data: FormData) {
-    console.log(data);
     async function _call() {
       const url = endpoints.createPet;
       await api
@@ -43,7 +42,6 @@ export default function AddPetForm() {
           },
         })
         .then((response) => {
-          console.log(response.data);
           router.push('/home')
         })
         .catch((err) => console.log(err));
@@ -60,7 +58,6 @@ export default function AddPetForm() {
     formData.append('adoption_date', adoptionDate);
     formData.append('weight', weight);
     formData.append('picture', imageInput);
-    console.log(formData);
     createPet(formData);
   };
 
@@ -170,11 +167,12 @@ export default function AddPetForm() {
               </Col>
               {imageInput ? (
                 <Col md={2}>
-                  <BsFillTrashFill
-                    size={30}
-                    className={styles.photoTrashIcon}
-                    onClick={clearImage}
-                  />
+                  <Button onClick={clearImage}>
+                    <BsFillTrashFill
+                      size={20}
+                      className={styles.photoTrashIcon}
+                    />
+                  </Button>
                 </Col>
               ) : (
                 <></>

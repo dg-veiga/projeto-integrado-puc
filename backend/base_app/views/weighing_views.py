@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.viewsets import ModelViewSet
+from base_app.permissions import OwnerPermission, ViewerPermission
 
 
 class CreateWeightRecordView(APIView):
@@ -26,8 +27,11 @@ class CreateWeightRecordView(APIView):
 class WeightRecordViewset(ModelViewSet):
     queryset = Pet.objects.all()
     serializer_class = PetWeighingRecordSerializer
+    permission_classes = [OwnerPermission | ViewerPermission]
     http_method_names = ['get']
     
-    def get_queryset(self):
-        return super().get_queryset()
+    def get_permissions(self):
+        if self.action == 'create':
+            self.permission_classes = [OwnerPermission]
+        return super().get_permissions()
     
